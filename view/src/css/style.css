@@ -119,6 +119,23 @@ nav .user_notification {
     height: 100%;
     border-radius: 25px;
 }
+/* Event Task area */
+.task_area {
+    background-color: var(--white);
+    color: var(--black);
+    width: 65%;
+    height: 100%;
+    padding: 75px;
+}
+.task {
+    background-color: #DDD;
+    width: 30%;
+    height: 100%;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 1%;
+}
+
 
 /* Events area */
 
