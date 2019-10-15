@@ -23,3 +23,5 @@ Route::get('/admin', 'UserController@user');
 Route::get('/event', 'EventController@events');
 Route::get('/task', 'TaskController@tasks');
 Route::get('/comment', 'CommentController@comments');
+
+Route::get('/calendar', 'EventController@calendar');

@@ -25,4 +25,8 @@ class EventController extends Controller
         return view('event', ['events' => $events]);
 
     }
+
+    public function calendar() {
+        return view('calendar');
+    }
 }

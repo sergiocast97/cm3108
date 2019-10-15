@@ -1,0 +1,186 @@
+* {
+    font-family: 'Maven Pro', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+:root {
+    /* Main Palette */
+    --white: #FFF;
+    --grey: #999;
+    --grey-hover: #AAA;
+    --black: #333;
+    --purple: #8B57B4;
+    --purple-hover: #724894;
+    --red: #F00;
+}
+
+main {
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.button {
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: var(--purple);
+    color: var(--white);
+    transition: 0.25s;
+}
+
+.button:hover {
+    background-color: var(--purple-hover);
+}
+
+.event_icon {
+    height: 15px;
+    width: auto;
+    fill: var(--white);
+}
+
+/* Navigation bar */
+
+nav {
+    min-height: 10%;
+    background-color: var(--purple);
+    color: var(--white);
+    padding: 10px 75px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+nav .page_title{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.9rem;
+}
+
+nav .user_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .user_name {
+    font-size: 1.25rem;
+    padding-right: 15px;
+}
+
+nav .user_profile {
+    display: flex;
+    justify-content: center;
+}
+
+nav .user_picture {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+nav .user_notification {
+    /* Position and shape */
+    position: relative;
+    right: 10px;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    /* Colour */
+    background-color: var(--red);
+    /* Font */
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Calendar area */
+
+.calendar_area {
+    background-color: var(--white);
+    color: var(--black);
+    width: 65%;
+    height: 100%;
+    padding: 75px;
+}
+
+.calendar {
+    background-color: #DDD;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+/* Events area */
+
+.events_area {
+    background-color: var(--black);
+    width: 35%;
+    height: 100%;
+    padding: 75px;
+    color: var(--white);
+}
+
+.events_area .events_day {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+}
+
+.events_area .events_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.events_area .events_single {
+    background-color: var(--grey);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+    transition: 0.25s;
+    margin-bottom: 20px;
+}
+
+.events_area .events_single:hover {
+    background-color: var(--grey-hover);
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.25);
+}
+
+.events_area .single_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.events_area .single_title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.events_area .button {
+    visibility: hidden;
+    opacity: 0.0;
+}
+
+.events_area .single_description {
+    font-size: 1.15rem;
+    margin: 10px 0;
+}
+
+.events_area .single_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 1.1rem;
+}

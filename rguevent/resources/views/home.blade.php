@@ -23,6 +23,7 @@
                 <a href="{{ url('/event') }}">Event</a>
                 <a href="{{ url('/task') }}">Task</a>
                 <a href="{{ url('/comment') }}">Comment</a>
+                <a href="{{ url('/calendar') }}">Calendar</a>
             </div>
         </div>
     </div>
