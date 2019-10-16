@@ -140,10 +140,11 @@ nav .user_notification {
 
 .event_area {
     background-color: var(--black);
-    width: 30%;
+    width: 35%;
     height: 100%;
-    padding: 75px;
+    padding: 60px;
     color: var(--white);
+    position: relative;
 }
 
 .event_description {
@@ -156,6 +157,23 @@ nav .user_notification {
     text-align: center;
 }
 
+.event_head {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.event_name {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+}
+
+.taskList li {
+    margin-top: 10%;
+    width: 90%;
+    padding: 8px;
+}
 
 /* Events area */
 .events_area {
