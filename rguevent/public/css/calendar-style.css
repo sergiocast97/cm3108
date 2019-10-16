@@ -1,0 +1,107 @@
+
+.cal-date .dot {
+    color: black;
+}
+
+.cal-date p:hover {
+    background-color: #724894;
+    color: white;
+}
+
+.selected .dot {
+    background-color: #8B57B4;
+    color: white;
+}
+
+
+.today .dot {
+    background-color: #712177;
+    color: white;
+}
+
+/* .event-date {
+    text-decoration: underline;
+} */
+
+
+#cal-month {
+    width:100%;
+    height: 100%;
+    table-layout: fixed;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cal-date {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* .outer-dot {
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    width:60px;
+    height: 60px;
+    background-color: brown;
+    line-height: 60px;  
+    border-radius: 50%;
+} */
+
+.dot {
+    /* position: absolute; */
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    width:50px;
+    height: 50px;
+    /* background-color: brown; */
+    line-height: 50px;  
+    border-radius: 50%;
+}
+
+.event-date .dot {
+    border: 2px #712177 solid;
+}
+
+.calendar-tools {
+    width: 100%;
+    align-items: center;
+}
+
+.calendar_area {
+    text-align: center;
+}
+
+.calendar-tools div {
+    display: inline-block;
+}
+
+.calendar-tools div span {
+    display: inline-block;
+}
+
+#back-btn {
+    width: auto;
+}
+
+#forward-btn {
+    width: auto;
+}
+
+.calendar-tools div button {
+    text-decoration: none;
+    border-radius: 10%;
+    font-size: 1rem;
+    border: none;
+    padding: 10px 20px;
+    color: #4E1752;
+    background-color: white;
+    font-weight: bold;
+}
+
+#calendar-current {
+    margin: auto;
+    padding: 0 10%;
+    font-size: 1.5rem;
+}

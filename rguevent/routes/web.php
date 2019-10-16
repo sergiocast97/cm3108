@@ -25,3 +25,6 @@ Route::get('/task', 'TaskController@tasks');
 Route::get('/comment', 'CommentController@comments');
 
 Route::get('/calendar', 'EventController@calendar');
+
+Route::post('/getdates', 'EventController@getdates');
+Route::post('/geteventinfo', 'EventController@geteventinfo');

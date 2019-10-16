@@ -27,6 +27,28 @@ class EventController extends Controller
     }
 
     public function calendar() {
+
+        // $events = Event::where('date',date("Y-m-d"))->get();
+
         return view('calendar');
     }
+
+    public function getdates(Request $request) {
+
+        $start_date =  $request->year."-".$request->month."-01";
+        $end_date = $request->year."-".$request->month."-".$request->lastday;
+
+        $event_dates = Event::select('date')->distinct()->whereBetween('date',[$start_date,$end_date])->get();
+
+        // dd($event_dates);
+
+        return $event_dates;
+    }
+
+    public function geteventinfo(Request $request) {
+        $events = Event::where('date', '=', $request->date)->get();
+        // dd($events);
+        return $events;
+    }
+
 }
