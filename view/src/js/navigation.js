@@ -10,7 +10,10 @@ function closeNav() {
 
 /* Set the navigation bar title when a menu item is clicked */
 function setTitle(title) {
+    // Navigation bar title
     document.getElementById("title").innerHTML = title;
+    // Page title (shown in chrome tab)
+    document.title = title;
     // Menu item must have been clicked, close the menu
     closeNav()
 }
