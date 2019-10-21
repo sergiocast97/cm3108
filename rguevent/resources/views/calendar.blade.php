@@ -17,12 +17,12 @@
 </head>
 <body>
 
-    <nav>
+    <!-- <nav>
 
-        <!-- Current view -->
+        !-- Current view --
         <div class="page_title">Calendar</div>
 
-        <!-- User header area -->
+        !-- User header area --
         <div class="user_header">
             <div class="user_name">River Dee</div>
             <div class="user_profile">
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-    </nav>
+    </nav> -->
 
     <main>
 
