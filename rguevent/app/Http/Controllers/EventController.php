@@ -11,6 +11,7 @@ use App\User;
 class EventController extends Controller
 {
     public function events() {
+
         $userid = Auth::id();
 
         $user = User::find($userid);

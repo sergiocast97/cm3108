@@ -6,6 +6,7 @@
 .cal-date p:hover {
     background-color: #724894;
     color: white;
+    border: 2px #724894 solid;
 }
 
 .selected .dot {
@@ -14,10 +15,7 @@
 }
 
 
-.today .dot {
-    background-color: #712177;
-    color: white;
-}
+
 
 /* .event-date {
     text-decoration: underline;
@@ -58,9 +56,16 @@
     /* background-color: brown; */
     line-height: 50px;  
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .event-date .dot {
+    border: 2px #8B57B4 solid;
+}
+
+.today .dot {
+    background-color: #712177;
+    color: white;
     border: 2px #712177 solid;
 }
 
@@ -104,4 +109,11 @@
     margin: auto;
     padding: 0 10%;
     font-size: 1.5rem;
+}
+
+#no-events {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    text-transform: uppercase;
 }
