@@ -239,6 +239,7 @@ nav .user_notification {
     font-size: 1.1rem;
 }
 
+<<<<<<< HEAD
 /* Navigation menu */
 
 .sidenav {
@@ -281,3 +282,57 @@ nav .user_notification {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+=======
+
+
+/* Main Area */
+
+main .user_profile{
+    display: flex;
+    padding: 70px;
+    justify-content: left;
+}
+
+main .user_picture{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+main .user_name{
+    font-size: 48px;
+}
+
+main .user_type{
+    font-size: 48px;
+}
+
+main .events_single{
+    background-color: var(--grey);
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+main .single_header{
+    padding-left: 10px;
+}
+
+main .single_description{
+    padding-left: 10px;
+}
+
+main .single_footer{
+    display: flex;
+    padding-left: 10px;
+    
+}
+
+main .events_single:hover{
+    background-color: var(--grey-hover);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+    
+
+>>>>>>> feature-admin
