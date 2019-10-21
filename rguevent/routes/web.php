@@ -19,8 +19,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/eventmanager', function () {
+    return view('eventmanager');
+});
+
 Route::get('/admin', 'UserController@user');
-Route::get('/event', 'EventController@events');
+
+Route::get('/event', function() {
+    return view('event');
+});
+
 Route::get('/task', 'TaskController@tasks');
 Route::get('/comment', 'CommentController@comments');
 

@@ -2,38 +2,35 @@
 var months = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
 var days = ["SUN","MON","TUES","WED","THURS","FRI","SAT"];
 
-
-
-// var today = new Date();
-// var year = today.getFullYear();
-// var month = today.getMonth() + 1;
-// var days = getNumDays(month,year);
-
-// var dates = [];
-// console.log(dates);
-
-// console.log(year);
-// console.log(month);
-// console.log(days);
-
+/**
+ * Returns number of days in a given month
+ * @param {int} month
+ * @param {int} year
+ */
 function getNumDays(month, year) {
+    // Use JS Date() function
     return new Date(year, month, 0).getDate();
 }
 
+/**
+ * Retrieve all event dates for given month.
+ * To display which dates have events on the Calendar
+ * @param {int} month 
+ * @param {int} year 
+ */
 function getEventDates(month,year) {
 
     var eventdates = [];
 
-    console.log("GET EVENTS");
-
+    // data for ajax call
     $date_range = {
         'year': year,
         'month': month,
         'lastday': getNumDays(month,year)
     };
 
-    console.log($date_range);
-
+    // AJAX - POST REQUEST
+    // Return all event dates
     $.ajax({
         url: 'getdates',
         type: 'POST',
@@ -43,11 +40,14 @@ function getEventDates(month,year) {
             'lastday' : getNumDays(month,year)
         },
         success: function(results) {
-            // console.log(dates);
+            // Add dates to array
             for (var i = 0; i < results.length; i++) {
                 var date = results[i].date;
                 eventdates.push(date);
             }
+
+            // Build calendar for given month, using returned event dates
+            // to display dates correctly
             calendarMonth(month, year, eventdates);
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -58,15 +58,18 @@ function getEventDates(month,year) {
     // console.log(dates);
 }
 
+/**
+ * Build calendar monthly view for given month and year
+ * @param {int} month 
+ * @param {int} year 
+ * @param {String[]} dates 
+ */
 function calendarMonth(month, year, dates) {
 
-    console.log("CALENDAR");
-    console.log(dates);
-
-    console.log("CALENDAR MONTH: " + month);
-
+    // Use table to display dates under correct 'Day of Week' headings
     var table = "<tbody><tr>";
     
+    // Add headings (Days of Week)
     for (var d = 0; d < days.length; d++) {
         table += "<th>" + days[d] + "</th>";
     }
@@ -77,15 +80,12 @@ function calendarMonth(month, year, dates) {
     
     var date_id;
     var date_class;
-
-    console.log(months[month]);
     
+    // find weekday of first day of month
     var firstDay = new Date(months[month] + " 1, " + year + " 00:00:00").getDay();
     
     var i;
     var d;
-
-    console.log("FIRST DAY: " + firstDay);
 
     // pad empty cells before first of the month
     if (firstDay != 0) {
@@ -106,11 +106,9 @@ function calendarMonth(month, year, dates) {
             row = "<tr>";
         }
         
+        // add clas; date as ID
         date_class = "cal-date";
         date_id = getDateId(i,month,year);
-
-        // console.log(date_id);
-        // console.log(dates.includes(date_id));
 
         // check for event on current date
         if (dates.includes(date_id)) {
@@ -119,15 +117,21 @@ function calendarMonth(month, year, dates) {
 
         // if current date = today, add class for highlight
         var today = new Date();
+
+        // define 'yesterday' for text date display
         var yesterday = new Date();
         yesterday.setDate(today.getDate() - 1);
+
+        // define 'tomorrow' for text date display
         var tomorrow = new Date();
         tomorrow.setDate(today.getDate() + 1);
 
+        // change date to String
         var today_string = today.toISOString().split('T')[0];
         var yesterday_string = yesterday.toISOString().split('T')[0];
         var tomorrow_string = tomorrow.toISOString().split('T')[0];
 
+        // check current date iteration against 'today'/'tomorrow'/'yesterday'
         switch(date_id) {
             case today_string:
                 date_class += " today";
@@ -148,16 +152,22 @@ function calendarMonth(month, year, dates) {
                 break;
         }
         
+        // add row of dates to calendar month table
         row += "<td class=\"" + date_class + "\" id=\"" + date_id + "\"><p class='dot'>" + i + "</p></td>";
 
     }
     
-    
+    // add finished month table to DOM
     document.getElementById("cal-month").innerHTML = table + row + "</tr></tbody>";
 
 }
 
-// get id for cells
+/**
+ * Get ID for each date, in format YYYY-MM-DD
+ * @param {int} day 
+ * @param {int} month 
+ * @param {int} year 
+ */
 function getDateId(day, month, year) {
 
     var id = year + "-" + (month + 1) + "-";
@@ -172,6 +182,10 @@ function getDateId(day, month, year) {
     return id;
 }
 
+/**
+ * Display selected date on side panel using date ID
+ * @param {int} id 
+ */
 function displaySelectedDate(id) {
 
     var date = id.split('-');
@@ -197,9 +211,14 @@ function createEventBox(event) {
 
 }
 
+/**
+ * Get event information for selected event
+ * @param {int} id 
+ */
 function getEventInfo(id) {
-    // console.log(id);
 
+    // AJAX - POST
+    // Get event information from Server
     $.ajax({
         url: 'geteventinfo',
         type: 'POST',
@@ -215,33 +234,44 @@ function getEventInfo(id) {
     })
 }
 
+/**
+ * DOCUMENT READY FUNCTION
+ */
 $(document).ready(function() {
 
+    // Setup for AJAX headers
+    // Add CSRF token
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
 
+    // Get current month and year using JS Date() function
     var current_month = new Date().getMonth();
     var current_year = new Date().getFullYear();
 
+    // Change title to correct month/year
     $('#display-month').text(months[current_month]);
     $('#display-year').text(current_year);
 
+    // Change navigation buttons to correct months
     $('#back-btn button').text(months[current_month - 1]);
     $('#forward-btn button').text(months[current_month + 1]);
 
-    console.log("READY");
-
+    // Get event dates and build calendar
     getEventDates(current_month,current_year);
 
+    // Add 'Click' listener to table cells
     $(document).on('click', 'td.cal-date', function() {
+
+        // Change selected box
         $('.cal-date').removeClass('selected');
         $(this).addClass('selected');
 
         var selected_id = $(this).attr('id');
 
+        // Set Date Text on side panel
         if ($(this).hasClass('yesterday')) {
             $('#selected-date').text("YESTERDAY");
         }
@@ -264,6 +294,7 @@ $(document).ready(function() {
             getEventInfo(selected_id);
         }
         else {
+            // No events
             $('.event_box').remove();
             $('#no-events').css('display','block');
         }
@@ -272,13 +303,20 @@ $(document).ready(function() {
 
 })
 
+/**
+ * Click Listener for Back Navigation
+ * Change calendar to display previous month
+ */
 $('#change-back').click(function() {
     var month_id = months.indexOf($('#display-month').text()) - 1;
 
     var display_year = $('#display-year').text();
 
+    // Set forward button to current month
     $('#forward-btn button').text($('#display-month').text());
 
+    // If current month = Jan
+    // Change to Dec
     if (month_id < 0) {
         month_id = 11;
         display_year = parseInt(display_year) - 1;
@@ -287,6 +325,7 @@ $('#change-back').click(function() {
 
     var previousmonth = month_id - 1;
 
+    // Calculate new previous month
     if (previousmonth < 0) {
         previousmonth = 11;
     }
@@ -295,17 +334,25 @@ $('#change-back').click(function() {
 
     $('#display-month').text(months[month_id]);
 
+    // Display updated calendar view
     getEventDates(month_id,display_year);
 
 })
 
+/**
+ * Click Listener for Forward Navigation
+ * Change calendar to display next month
+ */
 $('#change-forward').click(function() {
     var month_id = months.indexOf($('#display-month').text()) + 1;
 
     var display_year = $('#display-year').text();
 
+    // Change back button to current month
     $('#back-btn button').text($('#display-month').text());
 
+    // If current month = Dec
+    // Change to Jan
     if (month_id > 11) {
         month_id = 0;
         display_year = parseInt(display_year) + 1;
@@ -314,6 +361,7 @@ $('#change-forward').click(function() {
 
     var nextmonth = month_id + 1;
 
+    // Calculate next month
     if (nextmonth > 11) {
         nextmonth = 0;
     }
@@ -322,7 +370,7 @@ $('#change-forward').click(function() {
 
     $('#display-month').text(months[month_id]);
 
-    console.log("MONTH ID: " + month_id);
+    // Display updated calendar view
     getEventDates(month_id,display_year);
 
 })
