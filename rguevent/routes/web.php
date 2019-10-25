@@ -34,5 +34,9 @@ Route::get('/comment', 'CommentController@comments');
 
 Route::get('/calendar', 'EventController@calendar');
 
+// TEST ROUTE
+Route::get('/test', 'TestController@showdata');
+
+// POST ROUTES
 Route::post('/getdates', 'EventController@getdates');
 Route::post('/geteventinfo', 'EventController@geteventinfo');
