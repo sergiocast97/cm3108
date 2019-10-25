@@ -10,7 +10,7 @@ class Event extends Model
 
     // has one creator
     public function creator() {
-        return $this->belongsTo('App\User','creator_id','id');
+        return $this->belongsTo('App\User','creator_id');
     }
     
     // has many staff
@@ -20,6 +20,6 @@ class Event extends Model
 
     // has many tasks
     public function tasks() {
-        return $this->hasMany('App\Task','id','event_id');
+        return $this->hasMany('App\Task','event_id');
     }
 }

@@ -45,6 +45,10 @@ class User extends Authenticatable
     // has many tasks
     public function tasks() {
         // return all assigned tasks
-        return $this->hasMany('App\Task','id','assignee_id');
+        return $this->hasMany('App\Task','assignee_id');
+    }
+
+    public function profile() {
+        return $this->hasOne('App\Profile','user_id')
     }
 }
