@@ -5,12 +5,12 @@
 }
 
 .cal-date p:hover {
-    background-color: var(--purple);
+    background-color: var(--lightpurple);
     color: var(--white);
 }
 
 .selected .dot {
-    background-color: var(--purple);
+    background-color: var(--lightpurple);
     color: var(--white);
 }
 
@@ -36,7 +36,7 @@
 }
 
 .event-date .dot {
-    border: 2px solid var(--purple);
+    border: 2px solid var(--lightpurple);
 }
 
 /* .outer-dot {
