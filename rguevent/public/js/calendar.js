@@ -1,6 +1,6 @@
 // VARIABLES FOR CALENDAR
-var months = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
-var days = ["SUN","MON","TUES","WED","THURS","FRI","SAT"];
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var days = ["Sun","Mon","Tues","Wed","Thurs","Fri","Sat"];
 
 /**
  * Returns number of days in a given month
@@ -273,13 +273,13 @@ $(document).ready(function() {
 
         // Set Date Text on side panel
         if ($(this).hasClass('yesterday')) {
-            $('#selected-date').text("YESTERDAY");
+            $('#selected-date').text("Yesterday");
         }
         else if ($(this).hasClass('today')) {
-            $('#selected-date').text("TODAY");
+            $('#selected-date').text("Today");
         }
         else if ($(this).hasClass('tomorrow')) {
-            $('#selected-date').text("TOMORROW");
+            $('#selected-date').text("Tomorrow");
         }
         else {
             displaySelectedDate(selected_id);

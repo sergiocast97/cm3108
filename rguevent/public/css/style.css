@@ -1,5 +1,5 @@
 * {
-    font-family: 'Maven Pro', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 html, body {
@@ -9,12 +9,12 @@ html, body {
 :root {
     /* Main Palette */
     --white: #FFF;
-    --grey: #999;
-    --grey-hover: #AAA;
-    --black: #333;
-    --purple: #8B57B4;
-    --purple-hover: #724894;
-    --red: #F00;
+    --black: #000;
+    --purple: #712177;
+    --pink: #F7F2F7;
+    --red: #E94867;
+    --green: #4AA233;
+    --yellow: #FF7914;
 }
 
 main {
@@ -29,13 +29,15 @@ main {
     border-radius: 5px;
     font-size: 1rem;
     padding: 10px;
-    background-color: var(--purple);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--purple);
+    border: solid var(--purple) 2px;
     transition: 0.25s;
 }
 
 .button:hover {
-    background-color: var(--purple-hover);
+    background-color: var(--purple);
+    color: var(--white);
 }
 
 .event_icon {
@@ -54,24 +56,12 @@ nav {
 
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
 }
 
 nav .page_title{
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.9rem;
-}
-
-nav .user_header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav .user_name {
-    font-size: 1.25rem;
-    padding-right: 15px;
 }
 
 nav .user_profile {
@@ -94,7 +84,7 @@ nav .user_notification {
     width: 20px;
     height: 20px;
     /* Colour */
-    background-color: var(--red);
+    background-color: var(--yellow);
     /* Font */
     font-size: 0.9rem;
     display: flex;
@@ -108,9 +98,9 @@ nav .user_notification {
 .calendar_area {
     background-color: var(--white);
     color: var(--black);
-    width: 65%;
+    width: 100%;
     height: 100%;
-    padding: 75px;
+    padding: 50px;
 }
 
 .calendar {
@@ -126,69 +116,119 @@ nav .user_notification {
     color: var(--black);
     width: 100%;
     height: 100%;
-    padding: 75px;
+    padding: 50px;
     display: flex;
+    flex-direction: column;
 }
 
-.task {
-    background-color: #DDD;
-    width: 33%;
+.task_area_title {
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.task_lists {
     height: 100%;
-    border-radius: 25px;
-    margin: 1%;
+    display: flex;
+    justify-content:space-between ;
 }
 
-.event_area {
-    background-color: var(--black);
-    width: 35%;
+.task_list {
+    background-color: var(--white);
+    width: 32%;
     height: 100%;
-    padding: 60px;
-    color: var(--white);
-    position: relative;
+    padding: 1%;
+    border: solid var(--black) 5px;
 }
 
-.event_description {
-   margin-top: 10%;
+.task_area #todo {
+    border-color: var(--red);
 }
+
+.task_area #in_progress {
+    border-color: var(--yellow);
+}
+
+.task_area #complete {
+    border-color: var(--green);
+}
+
 
 .task_header {
-    padding: 5%;
-    font-weight: bolder;
-    text-align: center;
+    font-weight: 700;
 }
 
-.event_head {
+.task_column {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10%;
+    flex-direction: column;
+    height: 100%;
 }
 
-.event_name {
-    position: absolute;
-    top: 5%;
-    left: 10%;
+.task_item {
+    margin: 3% 0 3%;
+    padding: 3%;
+    background-color: var(--white);
+    border: solid var(--black) 2px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+    transition: 0.25s;
 }
 
-.taskList li {
-    margin-top: 10%;
-    width: 90%;
-    padding: 8px;
+.task_item:hover {
+    background-color: var(--black);
+    color: var(--white);
 }
 
 /* Events area */
+
+.event_info {
+    background-color: var(--black);
+    width: 35%;
+    height: 100%;
+    padding: 50px;
+    color: var(--white);
+}
 
 .events_area {
     background-color: var(--black);
     width: 35%;
     height: 100%;
-    padding: 75px;
+    padding: 50px;
     color: var(--white);
 }
 
-.events_area .events_day {
-    text-align: center;
-    text-transform: uppercase;
+.event_name {
+    font-weight: 700;
+    margin-bottom: 50px
+}
+
+.event_head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px
+}
+
+.event_summary {
+    margin-bottom: 50px;
     font-weight: 600;
+}
+
+.event_description {
+    margin-bottom: 50px;
+}
+
+.event_participants ul {
+    list-style-position: outside;
+    padding-left: 5%;
+}
+
+.participants_title {
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.events_area .events_day {
+    text-transform: capitalize;
+    font-weight: 700;
     font-size: 1.5rem;
     padding-bottom: 20px;
 }
@@ -199,16 +239,14 @@ nav .user_notification {
 }
 
 .events_area .event_box {
-    background-color: var(--grey);
-    border-radius: 25px;
+    background-color: var(--white);
     padding: 20px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
     transition: 0.25s;
     margin-bottom: 20px;
+    color: var(--black);
 }
 
 .events_area .event_box:hover {
-    background-color: var(--grey-hover);
     box-shadow: 0 10px 5px rgba(0, 0, 0, 0.25);
 }
 
@@ -249,25 +287,25 @@ nav .user_notification {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: var(--black);
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding: 100px 0;
     text-align:center;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 15px 500px 25px 500px;
     text-decoration: none;
     font-size: 25px;
-    color: #ffffff;
+    color: var(--white);
     display: block;
     transition: 0.3s;
 
 }
 
 .sidenav a:hover{
-    color: #AC6DE0;
+    color:var(--purple);
 }
 
 .sidenav .closebtn {
@@ -276,6 +314,18 @@ nav .user_notification {
     right: 50px;
     font-size: 56px;
     margin-left: 50px;
+    cursor: pointer;
+}
+
+.sidenav .closebtn:hover img {
+    height: 25px;
+    width: auto;
+    transform: rotate(0deg);
+    transition: 0.25s;
+}
+
+.sidenav .closebtn:hover img {
+    transform: rotate(-90deg);
 }
 
 @media screen and (max-height: 450px) {

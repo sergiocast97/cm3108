@@ -1,17 +1,17 @@
 
 .cal-date .dot {
-    color: black;
+    color: var(--black);
+    transition: 0.25s;
 }
 
 .cal-date p:hover {
-    background-color: #724894;
-    color: white;
-    border: 2px #724894 solid;
+    background-color: var(--purple);
+    color: var(--white);
 }
 
 .selected .dot {
-    background-color: #8B57B4;
-    color: white;
+    background-color: var(--purple);
+    color: var(--white);
 }
 
 
@@ -59,14 +59,10 @@
     cursor: pointer;
 }
 
-.event-date .dot {
-    border: 2px #8B57B4 solid;
-}
-
 .today .dot {
-    background-color: #712177;
-    color: white;
-    border: 2px #712177 solid;
+    background-color: var(--purple);
+    color: var(--white);
+
 }
 
 .calendar-tools {
@@ -100,8 +96,8 @@
     font-size: 1rem;
     border: none;
     padding: 10px 20px;
-    color: #4E1752;
-    background-color: white;
+    color: var(--purple);
+    background-color: var(--white);
     font-weight: bold;
 }
 
@@ -109,11 +105,10 @@
     margin: auto;
     padding: 0 10%;
     font-size: 1.5rem;
+    font-weight: 700;
 }
 
 #no-events {
     width: 100%;
     font-size: 1rem;
-    text-align: center;
-    text-transform: uppercase;
 }
