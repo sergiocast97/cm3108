@@ -47,7 +47,11 @@
 
     <div class="single_header">
         <div class="single_title"></div>
-        <div class="button view_button">View</div>
+        <form method="POST" action="{{ url('/event') }}">
+            @csrf
+            <input name="event_id" type="hidden">
+            <button class="button view_button">View</button>
+        </form>
     </div>
 
     <div class="single_description"></div>

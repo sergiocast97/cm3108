@@ -208,6 +208,7 @@ function createEventBox(event) {
     $('#' + event.id + ' .single_title').text(event.title);
     $('#' + event.id + ' .single_description').text(event.description);
     $('#' + event.id + ' .single_location span').text(event.location);
+    $('#' + event.id + ' input[name="event_id"]').val(event.id);
 
 }
 

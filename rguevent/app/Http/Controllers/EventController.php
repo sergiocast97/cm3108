@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+// use Illuminate\Http\RedirectResponse;
+use App\Http\Controllers\Redirect;
 
 use App\Event;
 use App\User;
@@ -50,6 +52,25 @@ class EventController extends Controller
         $events = Event::where('date', '=', $request->date)->get();
         // dd($events);
         return $events;
+    }
+
+    
+
+    public function event(Request $request) {
+        // get event
+        $id = $request->event_id;
+        $event = Event::find($id);
+
+        // get participants
+        $staff = $event->staff()->select('name')->get();
+
+        // get tasks
+        $tasks = $event->tasks()->get();
+
+        // dd($tasks);
+
+        // return view and data
+        return view('event',['event' => $event, 'staff' => $staff, 'tasks' => $tasks]);
     }
 
 }
