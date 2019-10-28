@@ -212,6 +212,17 @@ function createEventBox(event) {
 
 }
 
+function showEventInfo(event) {
+    var box = "<div class='event_box' id='" + event.id + "'>" + $('.events_single').html();
+
+    $('.events_list').append(box);
+
+    $('#' + event.id + ' .single_title').text(event.title);
+    $('#' + event.id + ' .single_description').text(event.description);
+    $('#' + event.id + ' .single_location span').text(event.location);
+    $('#' + event.id + ' input[name="event_id"]').val(event.id);
+}
+
 /**
  * Get event information for selected event
  * @param {int} id 
@@ -228,9 +239,14 @@ function getEventInfo(id) {
         },
         dataType: 'json',
         success: function(result) {
-            for (var i = 0; i < result.length; i++) {
-                createEventBox(result[i]);
+            if (result.length > 1) {
+                for (var i = 0; i < result.length; i++) {
+                    createEventBox(result[i]);
+                }
             }
+            else {
+                showEventInfo(result[0]);
+            }            
         }
     })
 }
