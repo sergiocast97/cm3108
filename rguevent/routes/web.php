@@ -19,10 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/eventmanager', function () {
-    return view('eventmanager');
-});
-
 Route::get('/admin', 'UserController@user');
 
 Route::get('/event', function() {
