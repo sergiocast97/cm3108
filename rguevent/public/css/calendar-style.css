@@ -35,6 +35,10 @@
     vertical-align: middle;
 }
 
+.event-date .dot {
+    border: 2px solid var(--purple);
+}
+
 /* .outer-dot {
     margin: auto;
     top: 50%;

@@ -21,9 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'UserController@user');
 
-Route::get('/event', function() {
-    return view('event');
-});
+// Route::get('/event', function() {
+//     return view('event');
+// });
 
 Route::get('/task', 'TaskController@tasks');
 
@@ -34,3 +34,5 @@ Route::get('/calendar', 'EventController@calendar');
 Route::post('/getdates', 'EventController@getdates');
 
 Route::post('/geteventinfo', 'EventController@geteventinfo');
+
+Route::post('/event','EventController@event');

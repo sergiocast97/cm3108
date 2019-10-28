@@ -27,7 +27,7 @@
         <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
 
         <!-- Navigation bar title -->
-        <div class="page_title" id="title">Title</div>
+        <div class="page_title" id="title">Event Manager</div>
 
         <!-- User Profile Notification -->
         <div class="user_profile">
