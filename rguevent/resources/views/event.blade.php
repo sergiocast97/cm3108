@@ -1,88 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+@extends('layouts.app')
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Event</title>
+@section('content')
 
-    <!-- Styling -->
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
 
-</head>
-<body>
-    <main>
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
 
-    <!-- Event Task area -->
-    <div class="task_area">
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
 
-        <!-- Tasks -->
-        <div class="task">
-            <!-- To do tasks-->
+<!-- Event Tasks -->
+<div class="task_area">
+
+    <h2 class="task_area_title">Tasks</h2>
+
+    <div class="task_lists">
+
+        <!-- To Do -->
+        <div class="task_list" id="todo">
             <h4 class="task_header">To Do</h4>
-            <ul class="taskList">
-                <li>Book conference room</li>
-                <li>Contact sponsors</li>
-                <li>Develop a promo video</li>
-                <li>Order food and beverages</li>
-            </ul>
+            <div class="task_column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="task_item" id="item1" draggable="true" ondragstart="drag(event)">Book conference room</div>
+                <div class="task_item" id="item2" draggable="true" ondragstart="drag(event)">Contact sponsors</div>
+                <div class="task_item" id="item3" draggable="true" ondragstart="drag(event)">Develop a promo video</div>
+                <div class="task_item" id="item4" draggable="true" ondragstart="drag(event)">Order food and beverages</div>
+            </div>
         </div>
-        <div class="task">
+
+        <!-- In Progress -->
+        <div class="task_list" id="in_progress">
             <h4 class="task_header">In Progress</h4>
-            <!-- In progress tasks-->
-            <ul class="taskList">
-                <li>Create Facebook event</li>
-                <li>Reach out to speakers</li>
-            </ul>
+            <div class="task_column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="task_item" id="item5" draggable="true" ondragstart="drag(event)">Create Facebook event</div>
+                <div class="task_item" id="item6" draggable="true" ondragstart="drag(event)">Reach out to speakers</div>
+            </div>
         </div>
-        <div class="task">
-            <h4 class="task_header">Completed</h4>
-            <!-- completed tasks-->
-            <ul class="taskList">
-                <li>Recruit event committee</li>
-                <li>Create event budget</li>
-            </ul>
+
+        <!-- Complete -->
+        <div class="task_list" id="complete">
+            <h4 class="task_header">Complete</h4>
+            <div class="task_column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="task_item" id="item7" draggable="true" ondragstart="drag(event)">Recruit event committee</div>
+                <div class="task_item" id="item8" draggable="true" ondragstart="drag(event)">Create event budget</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Event info sidebar -->
+<div class="event_info">
+
+    <h3 class="event_name">Event Name</h3>
+
+    <div class="event_head">
+        <div class="single_location">
+            <img src="{{ URL::asset('img/location.svg') }}" class="event_icon" alt="location">
+            <span>Sir Ian Wood</span>
+        </div>
+        <div class="single_time">
+            <img src="{{ URL::asset('img/time.svg') }}" class="event_icon" alt="clock">
+            <span>10am - 3pm</span>
         </div>
     </div>
 
-        <!-- Events Area -->
-        <div class="event_area">
-            <h3 class="event_name">Event Name</h3>
-            <div class="event_head">
-                <div class="single_time">
-                    <img src="{{ URL::asset('img/time.svg') }}" class="event_icon" alt="clock">
-                    <span>10am - 3pm</span>
-                </div>
-                <div class="single_location">
-                    <img src="{{ URL::asset('img/location.svg') }}" class="event_icon" alt="location">
-                    <span>Sir Ian Wood</span>
-                </div>
-            </div>
+    <!-- Event Desctiption and Participants -->
+    <div class="event_summary">Open day session for incoming and potential students</div>
 
-            <!-- Event Desctiption and Participants -->
-            <div class="event_description">
-                 Open day for incoming and potential students
-            </div>
-            <div class="event_description">
-                Our Open Days are an opportunity to start an educational journey which not only provides you with detailed 
-                subject knowledge but also to become a skilled, capable graduate who is prepared for the world of work.
-            </div>
-            <div class="event_description">
-                    Participants:
-                    <ul>
-                        <li>Michael Ellis</li>
-                        <li>Boaty McBoatface</li>
-                        <li>Henry Wensleydale</li>
-                    </ul>
-            </div>
-        </div>
+    <div class="event_description">Our Open Days are an opportunity to start an educational journey which not only provides you with detailed  subject knowledge but also to become a skilled, capable graduate who is prepared for the world of work.</div>
+    
+    <div class="event_participants">
+        <div class="participants_title">Participants</div>
+        <ul>
+            <li>Michael Ellis</li>
+            <li>Boaty McBoatface</li>
+            <li>Henry Wensleydale</li>
+        </ul>
+    </div>
 
-    </main>
+</div>
 
-    <!-- JS -->
+</main>
 
-</body>
-</html>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+@endsection
