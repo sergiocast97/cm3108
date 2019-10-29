@@ -14,7 +14,7 @@
     <!-- Styling -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/calendar-style.css') }}" rel="stylesheet">
     
@@ -39,7 +39,7 @@
     <!-- Menu items -->
     <div id="side_nav" class="sidenav">
         <div class="closebtn" onclick="closeNav()"><img src="{{ asset('img/cross.svg') }}"></div>
-        <a href="{{ url('/welcome') }}" >Welcome</a>
+        <a href="{{ url('/') }}" >Login</a>
         <a href="{{ url('/calendar') }}" >Calendar</a>
         <a href="{{ url('/event') }}" >Events</a>
         <a href="{{ url('/user') }}" >User</a>

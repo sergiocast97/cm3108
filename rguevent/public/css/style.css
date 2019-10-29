@@ -9,12 +9,12 @@ html, body {
 :root {
     /* Main Palette */
     --white: #FFF;
+    --pink: #F7E3F7;
     --black: #000;
     --purple: #712177;
-    --pink: #F7F2F7;
-    --red: #E94867;
     --green: #4AA233;
     --yellow: #FF7914;
+    --red: #E94867;
 }
 
 main {
@@ -27,9 +27,10 @@ main {
 .button {
     text-align: center;
     font-size: 1rem;
-    padding: 10px;
+    padding: 5px 10px;
+    font-weight: 600;
     background-color: var(--white);
-    color: var(--purple);
+    color: var(--black);
     border: solid var(--purple) 2px;
     transition: 0.25s;
 }
@@ -39,10 +40,74 @@ main {
     color: var(--white);
 }
 
+.textbox {
+    width: 300px;
+    height: 50px;
+    background-color: var(--pink);
+    color: var(--purple);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0;
+    outline: none;
+    transition: 0.25s;
+}
+
+.textbox:focus {
+    border: none;
+    outline: none;
+    border-radius: 0;
+    border: solid 1px var(--purple);
+}
+
+.textbox::placeholder {
+    color: var(--purple);
+}
+
+.input_error {
+    border: solid 1px var(--red);
+}
+
 .event_icon {
     height: 15px;
     width: auto;
-    fill: var(--white);
+}
+
+.event_icon svg {
+    fill: var(--black);
+}
+
+/* Login Page */
+
+.login_screen {
+    height: 100%;
+    background: #000;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_card {
+    background-color: var(--white);
+    border-top: 10px solid var(--purple);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+    padding: 35px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_header {
+    font-weight: 700;
+    font-size: 1.9rem;
+}
+
+.login_element {
+    padding: 15px 0;
 }
 
 /* Navigation bar */
