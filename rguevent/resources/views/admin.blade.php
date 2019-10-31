@@ -7,6 +7,34 @@
     <p>Admin Page</p>
     <p>{{ $user }}</p>
 
+    <p>My Events</p>
+    <ul>
+        @foreach ($events as $event)
+        <li>{{ $event->title }} : {{ $event->description }}</li>
+        @endforeach
+    </ul>
+
+    <p>My Tasks</p>
+    <ul>
+        @foreach ($tasks as $task)
+        <li>{{ $task->title }}</li>
+        @endforeach
+    </ul>
+
+    @if (!empty($profile))
+    <p>My Profile</p>
+    <ul>
+        <li>{{ $profile }}</li>
+    </ul>
+
+    <p>My Skills</p>
+    <ul>
+        @foreach ($skills as $skill)
+        <li>{{ $skill }}</li>
+        @endforeach
+    </ul>
+    @endif
+
 </div>
 
 <!-- Events Area -->

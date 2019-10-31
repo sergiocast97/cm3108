@@ -14,6 +14,6 @@ class Profile extends Model
     }
 
     public function skills() {
-        return $this->belongsToMany('App\Skill','userskills','user_id','skill_id');
+        return $this->belongsToMany('App\Skill','userskills','profile_id','skill_id');
     }
 }
