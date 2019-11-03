@@ -22,6 +22,7 @@ function drop(ev) {
 <div class="task_area">
 
     <h2 class="task_area_title">Tasks</h2>
+    
 
     <div class="task_lists">
 
@@ -31,7 +32,12 @@ function drop(ev) {
             <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
                     @if ($task->status === "To Do")
-                        <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">{{ $task->title }}</div>
+                        <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">
+                            {{ $task->title }}
+                            @if ($task->assignee_id == $user->id)
+                            <span>Assigned</span>
+                            @endif
+                        </div>
                     @endif
                 @endforeach
                 <!-- <div class="task_item" id="item1" draggable="true" ondragstart="drag(event)">Book conference room</div>
@@ -47,7 +53,12 @@ function drop(ev) {
             <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
                     @if ($task->status === "In Progress")
-                        <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">{{ $task->title }}</div>
+                        <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">
+                            {{ $task->title }}
+                            @if ($task->assignee_id == $user->id)
+                            <span>Assigned</span>
+                            @endif
+                        </div>
                     @endif
                 @endforeach
                 <!-- <div class="task_item" id="item5" draggable="true" ondragstart="drag(event)">Create Facebook event</div>
@@ -61,7 +72,12 @@ function drop(ev) {
             <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
                     @if ($task->status === "Complete")
-                        <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">{{ $task->title }}</div>
+                        <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">
+                            {{ $task->title }}
+                            @if ($task->assignee_id == $user->id)
+                            <span>Assigned</span>
+                            @endif
+                        </div>
                     @endif
                 @endforeach
                 <!-- <div class="task_item" id="item7" draggable="true" ondragstart="drag(event)">Recruit event committee</div>
