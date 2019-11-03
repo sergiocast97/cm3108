@@ -4,6 +4,7 @@
 <!-- Calendar area -->
 <div class="main_area">
 
+<script>/*
     <div class="user_summary">
 
         <!-- Picture -->
@@ -25,9 +26,9 @@
         </div>
 
     </div>
+*/</script>
 
-<script>/*
-    <div class="user_summary">
+    <div class="user_summary" id="student">
 
         <!-- Picture -->
         <img src="{{ URL::asset('img/user.jpg') }}" alt="Profile Picture" class="picture">
@@ -74,7 +75,6 @@
             </div>
         </div>
     </div>
-*/</script>
 
     <div class="user_events">
         <div class="user_area_title">Events</div>

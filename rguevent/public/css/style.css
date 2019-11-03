@@ -47,6 +47,10 @@ main {
     padding-bottom: 20px;
 }
 
+.box .button {
+    visibility: hidden;
+    opacity: 0.0;
+}
 
 .button {
     text-align: center;
@@ -66,7 +70,9 @@ main {
 
 .button:focus{
     outline: none;
-    border: solid var(--pink) 2px;
+    color: var(--black);
+    background-color: var(--pink);
+    border-color: var(--pink);
 }
 
 .textbox {
@@ -228,13 +234,6 @@ header .user_notification {
     border: solid var(--black) 5px;
 }
 
-.task_area #todo { border-color: var(--red) }
-
-.task_area #in_progress { border-color: var(--yellow) }
-
-.task_area #complete { border-color: var(--green) }
-
-
 .task_header {
     font-weight: 700;
 }
@@ -246,7 +245,7 @@ header .user_notification {
 }
 
 .task_item {
-    margin: 3% 0 3%;
+    margin: 2% 0;
     padding: 3%;
     background-color: var(--white);
     border: solid var(--black) 2px;
@@ -254,6 +253,14 @@ header .user_notification {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
     transition: 0.25s;
 }
+
+.task_area #todo { border-color: var(--red) }
+
+.task_area #in_progress { border-color: var(--yellow) }
+
+.task_area #complete { border-color: var(--green) }
+
+#involved { border-color: var(--purple) }
 
 .task_item:hover {
     background-color: var(--black);
@@ -326,11 +333,6 @@ header .user_notification {
 .single_title {
     font-size: 1.25rem;
     font-weight: 700;
-}
-
-.button {
-    visibility: hidden;
-    opacity: 0.0;
 }
 
 .single_description {
@@ -406,7 +408,7 @@ header .user_notification {
 .user_summary {
     display: flex;
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .user_summary .picture {
@@ -440,20 +442,67 @@ header .user_notification {
     color: var(--purple);
 }
 
-.user_summary .contact_info {
-    font-size: 1.45rem;
+.user_summary .contact_info { font-size: 1.25rem }
+
+#student .user_name { font-size: 1.75rem }
+
+#student .user_type { font-size: 1.25rem }
+
+#student .user_study { font-size: 1.15rem }
+
+.student_info {
+    display: flex;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.skills_list, .experience_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: 125px;
+}
+
+.student_skills, .student_experience {
+    width: 100%;
+}
+
+.skills_item, .experience_item {
+    margin: 0 5px 5px 0;
+    padding: 5px 10px;
+    background-color: var(--white);
+    border: solid var(--black) 2px;
+    font-size: 0.9rem;
 }
 
 .user_area_title {
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    margin-bottom: 15px;
+}
+
+.events_table {
+    width: 100%;
 }
 
 .events_table th {
     background-color: var(--purple);
     color: var(--white);
+    padding: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
+.events_table td {
+    padding: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.events_table tr:nth-child(even) { background: var(--pink) }
+
+.events_table tr:nth-child(odd) { background: var(--white) }
 
 .tasks_list {
     display: flex;

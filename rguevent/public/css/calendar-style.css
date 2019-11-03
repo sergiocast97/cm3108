@@ -1,16 +1,19 @@
 .cal-date .dot {
     color: var(--black);
+    border: 2px solid var(--white);
     transition: 0.25s;
 }
 
 .cal-date p:hover {
     background-color: var(--pink);
-    color: var(--white);
+    border: 2px solid var(--pink);
+    color: var(--black);
 }
 
 .selected .dot {
+    border: 2px solid var(--pink);
     background-color: var(--pink);
-    color: var(--white);
+    color: var(--black);
 }
 
 #cal-month {
@@ -27,7 +30,8 @@
 }
 
 .event-date .dot {
-    border: 2px solid var(--pink);
+    border: 2px solid var(--purple);
+    border: 2px solid var(--purple);
 }
 
 .dot {
@@ -43,6 +47,7 @@
 
 .today .dot {
     background-color: var(--purple);
+    border: 2px solid var(--purple);
     color: var(--white);
 
 }

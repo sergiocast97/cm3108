@@ -24,6 +24,7 @@ $( function(){
  * Event 'View' Button animations
  */
 $(document).ready(function() {
+
     $(document).on('mouseenter','.box', function() {
         // Showing button
         $(".button", this).css({opacity: 1.0, visibility: "visible", cursor: "pointer"});
