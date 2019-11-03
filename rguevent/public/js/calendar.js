@@ -210,9 +210,26 @@ function createEventBox(event) {
     $('#' + event.id + ' .single_location span').text(event.location);
     $('#' + event.id + ' input[name="event_id"]').val(event.id);
 
+    var event_time = "";
+
+    if (event.start_time != null) {
+        $('#' + event.id + ' .single_time img').css('display','block');
+        event_time += event.start_time;
+        if (event.end_time != null) {
+            event_time += "-";
+            event_time += event.end_time;
+        }
+        $('#' + event.id + ' .single_time span').text(event_time);
+    }
+
+    
+
 }
 
 function showEventInfo(event) {
+
+    console.log(event);
+
     var box = "<div class='box event_box' id='" + event.id + "'>" + $('.events_single').html();
 
     $('.events_list').append(box);
@@ -221,6 +238,17 @@ function showEventInfo(event) {
     $('#' + event.id + ' .single_description').text(event.description);
     $('#' + event.id + ' .single_location span').text(event.location);
     $('#' + event.id + ' input[name="event_id"]').val(event.id);
+
+    var event_time = "";
+
+    if (event.start_time != null) {
+        $('#' + event.id + ' .single_time img').css('display','block');
+        event_time += event.start_time;
+        if (event.end_time != null) {
+            event_time += event.end_time;
+        }
+        $('#' + event.id + ' .single_time span').text(event_time);
+    }
 }
 
 /**
@@ -328,19 +356,21 @@ $(document).ready(function() {
  */
 
 $('#change-back').click(function() {
-    var month_id = months.indexOf($('.date-picker').val().split(" ")[0]) - 1;
+    var month_id = months.indexOf($('.date-picker').val().split(" ")[0]);
 
     var display_year = $('.date-picker').val().split(" ")[1];
 
     // Set forward button to current month
-    $('#forward-btn button').text($('#display-month').text());
+    $('#forward-btn button').text(months[month_id]);
+
+    month_id -= 1;
 
     // If current month = Jan
     // Change to Dec
     if (month_id < 0) {
         month_id = 11;
         display_year = parseInt(display_year) - 1;
-        $('#display-year').text(display_year);
+        // $('#display-year').text(display_year);
     }
 
     var previousmonth = month_id - 1;
@@ -352,7 +382,7 @@ $('#change-back').click(function() {
 
     $('#back-btn button').text(months[previousmonth]);
 
-    $('#display-month').text(months[month_id]);
+    $('.date-picker').val(months[month_id] + " " + display_year);
 
     // Display updated calendar view
     getEventDates(month_id,display_year);
@@ -364,19 +394,22 @@ $('#change-back').click(function() {
  */
 $('#change-forward').click(function() {
 
-    var month_id = months.indexOf($('.date-picker').val().split(" ")[0]) - 1;
+    var month_id = months.indexOf($('.date-picker').val().split(" ")[0]);
+    console.log(month_id);
 
     var display_year = $('.date-picker').val().split(" ")[1];
 
     // Change back button to current month
-    $('#back-btn button').text($('#display-month').text());
+    $('#back-btn button').text(months[month_id]);
+
+    month_id += 1;
 
     // If current month = Dec
     // Change to Jan
     if (month_id > 11) {
         month_id = 0;
         display_year = parseInt(display_year) + 1;
-        $('#display-year').text(display_year);
+        // $('#display-year').text(display_year);
     }
 
     var nextmonth = month_id + 1;
@@ -388,7 +421,8 @@ $('#change-forward').click(function() {
 
     $('#forward-btn button').text(months[nextmonth]);
 
-    $('#display-month').text(months[month_id]);
+    // $('#display-month').text(months[month_id]);
+    $('.date-picker').val(months[month_id] + " " + display_year);
 
     // Display updated calendar view
     getEventDates(month_id,display_year);

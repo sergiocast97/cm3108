@@ -59,7 +59,7 @@
 
     <div class="single_footer">
         <div class="single_time">
-            <img src="{{ URL::asset('img/time_black.svg') }}" class="event_icon" alt="clock">
+            <img src="{{ URL::asset('img/time_black.svg') }}" class="event_icon" alt="clock" style="display:none;">
             <span></span>
         </div>
         <div class="single_location">
