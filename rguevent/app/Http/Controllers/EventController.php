@@ -69,8 +69,10 @@ class EventController extends Controller
 
         // dd($tasks);
 
+        $user = Auth::user();
+
         // return view and data
-        return view('event',['event' => $event, 'staff' => $staff, 'tasks' => $tasks]);
+        return view('event',['event' => $event, 'staff' => $staff, 'tasks' => $tasks, 'user' => $user]);
     }
 
 
