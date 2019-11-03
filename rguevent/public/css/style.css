@@ -23,6 +23,30 @@ main {
     justify-content: space-between;
 }
 
+.main_area {
+    background-color: var(--white);
+    color: var(--black);
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+
+.side {
+    background-color: var(--black);
+    width: 35%;
+    height: 100%;
+    padding: 50px;
+    color: var(--white);
+}
+
+.side_title {
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+}
+
 
 .button {
     text-align: center;
@@ -38,6 +62,11 @@ main {
 .button:hover {
     background-color: var(--purple);
     color: var(--white);
+}
+
+.button:focus{
+    outline: none;
+    border: solid var(--pink) 2px;
 }
 
 .textbox {
@@ -110,9 +139,9 @@ main {
     padding: 15px 0;
 }
 
-/* Navigation bar */
+/* Header nav */
 
-nav {
+header {
     min-height: 10%;
     background-color: var(--purple);
     color: var(--white);
@@ -122,25 +151,25 @@ nav {
     justify-content: space-between;
 }
 
-nav .page_title{
+header .page_title{
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.9rem;
 }
 
-nav .user_profile {
+header .user_profile {
     display: flex;
     justify-content: center;
 }
 
-nav .user_picture {
+header .user_picture {
     width: 50px;
     height: 50px;
     object-fit: cover;
     border-radius: 100%;
 }
 
-nav .user_notification {
+header .user_notification {
     /* Position and shape */
     position: relative;
     right: 10px;
@@ -159,19 +188,14 @@ nav .user_notification {
 
 /* Calendar area */
 
-.calendar_area {
-    background-color: var(--white);
-    color: var(--black);
-    width: 100%;
-    height: 100%;
-    padding: 50px;
-}
-
 .calendar {
     /* background-color: #DDD; */
     width: 100%;
     height: 100%;
-    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Event Task area */
@@ -204,17 +228,11 @@ nav .user_notification {
     border: solid var(--black) 5px;
 }
 
-.task_area #todo {
-    border-color: var(--red);
-}
+.task_area #todo { border-color: var(--red) }
 
-.task_area #in_progress {
-    border-color: var(--yellow);
-}
+.task_area #in_progress { border-color: var(--yellow) }
 
-.task_area #complete {
-    border-color: var(--green);
-}
+.task_area #complete { border-color: var(--green) }
 
 
 .task_header {
@@ -252,14 +270,6 @@ nav .user_notification {
     color: var(--white);
 }
 
-.events_area {
-    background-color: var(--black);
-    width: 35%;
-    height: 100%;
-    padding: 50px;
-    color: var(--white);
-}
-
 .event_name {
     font-weight: 700;
     margin-bottom: 50px
@@ -290,19 +300,12 @@ nav .user_notification {
     margin: 20px 0;
 }
 
-.events_area .events_day {
-    text-transform: capitalize;
-    font-weight: 700;
-    font-size: 1.5rem;
-    padding-bottom: 20px;
-}
-
-.events_area .events_list {
+.events_list {
     display: flex;
     flex-direction: column;
 }
 
-.events_area .event_box {
+.event_box {
     background-color: var(--white);
     padding: 20px;
     transition: 0.25s;
@@ -310,32 +313,32 @@ nav .user_notification {
     color: var(--black);
 }
 
-.events_area .event_box:hover {
+.event_box:hover {
     box-shadow: 0 10px 5px rgba(0, 0, 0, 0.25);
 }
 
-.events_area .single_header {
+.single_header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
 
-.events_area .single_title {
+.single_title {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.events_area .button {
+.button {
     visibility: hidden;
     opacity: 0.0;
 }
 
-.events_area .single_description {
+.single_description {
     font-size: 1.15rem;
     margin: 10px 0;
 }
 
-.events_area .single_footer {
+.single_footer {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -395,4 +398,83 @@ nav .user_notification {
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+
+
+/* User Page */
+
+.user_summary {
+    display: flex;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.user_summary .picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 25px;
+}
+
+.user_summary .user_info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.user_summary .main_info, .user_summary .contact_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user_summary .user_name {
+    font-size: 2.25rem;
+    font-weight: 800;
+}
+
+.user_summary .user_type {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--purple);
+}
+
+.user_summary .contact_info {
+    font-size: 1.45rem;
+}
+
+.user_area_title {
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.events_table th {
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+
+.tasks_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.to_do_task { border-left-color: var(--red) }
+
+.in_progress_task { border-left-color: var(--yellow) }
+
+.single_task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    color: var(--black);
+    border-left: solid 5px var(--purple);
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.task_title {
+    font-weight: 700;
 }

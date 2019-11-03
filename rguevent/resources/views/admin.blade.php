@@ -2,8 +2,111 @@
 @section('content')
 
 <!-- Calendar area -->
-<div class="user_area">
+<div class="main_area">
 
+    <div class="user_summary">
+
+        <!-- Picture -->
+        <img src="{{ URL::asset('img/user.jpg') }}" alt="Profile Picture" class="picture">
+
+        <div class="user_info">
+
+            <div class="main_info">
+                <div class="user_name">Michael Ellis</div>
+                <div class="user_type">Admin</div>
+            </div>
+
+            <div class="contact_info">
+                <div class="user_phone">+44 6381 317 611</div>
+                <div class="user_email">m.ellis@rgu.ac.uk</div>
+                <div class="user_gender">Male</div>
+            </div>
+
+        </div>
+
+    </div>
+
+<script>/*
+    <div class="user_summary">
+
+        <!-- Picture -->
+        <img src="{{ URL::asset('img/user.jpg') }}" alt="Profile Picture" class="picture">
+
+        <div class="user_info">
+
+            <div class="main_info">
+                <div class="user_name">Eilidh Clark</div>
+                <div class="user_type">Student Ambassador</div>
+                <div class="user_study">BSc Computer Science | Year 2</div>
+            </div>
+
+            <div class="contact_info">
+                <div class="user_phone">+44 8503 593 833</div>
+                <div class="user_email"><span>1712970</span>@rgu.ac.uk</div>
+                <div class="user_gender">Female</div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div class="student_info">
+
+        <!-- Student Skills -->
+        <div class="student_skills">
+            <div class="user_area_title">Skills</div>
+            <div class="skills_list">
+                <div class="skills_item">Web Development</div>
+                <div class="skills_item">Programming</div>
+                <div class="skills_item">Event Management</div>
+                <div class="skills_item">Interpersonal Skills</div>
+            </div>
+        </div>
+
+        <!-- Student Experience -->
+        <div class="student_experience">
+            <div class="user_area_title">Experience</div>
+            <div class="experience_list">
+                <div class="experience_item">Open Day</div>
+                <div class="experience_item">Women in STEM</div>
+                <div class="experience_item">Lego EV3 Robots</div>
+                <div class="experience_item">Carrers Fayre</div>
+            </div>
+        </div>
+    </div>
+*/</script>
+
+    <div class="user_events">
+        <div class="user_area_title">Events</div>
+        <table class="events_table">
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Completion</th>
+                <th>Priority</th>
+            </tr>
+            <tr>
+                <td>Open Day</td>
+                <td>20th October 2019</td>
+                <td>75%</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Lego EV3 Robots</td>
+                <td>20th October 2019</td>
+                <td>25%</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Anne Elk's Talk</td>
+                <td>12th November 2019</td>
+                <td>50%</td>
+                <td>Yes</td>
+            </tr>
+        </table>
+
+    </div>
+<!-- 
     <p>Admin Page</p>
     <p>{{ $user }}</p>
 
@@ -34,46 +137,41 @@
         @endforeach
     </ul>
     @endif
-
+-->
 </div>
 
 <!-- Events Area -->
-<div class="events_area">
+<div class="side">
 
-    <div class="events_day" id="selected-date">Today</div>
+    <div class="side_title">Tasks</div>
 
     <!-- Event List -->
-    <div class="events_list">
+    <div class="tasks_list">
 
-        <p id="no-events">No Events</p>
+        <!-- <p id="no-tasks">No Tasks</p> -->
 
-    </div>
+        <div class="box single_task to_do_task">
+            <div class="task_title">Prepare Room</div>
 
-</div>
-
-<!-- Single event -->
-<div class="events_single" style="display:none;">
-
-    <div class="single_header">
-        <div class="single_title"></div>
-        <form method="POST" action="{{ url('/event') }}">
+            <!-- View the event containing the task -->
+            <form method="POST" action="{{ url('/event') }}">
             @csrf
             <input name="event_id" type="hidden">
             <button class="button view_button">View</button>
-        </form>
-    </div>
-
-    <div class="single_description"></div>
-
-    <div class="single_footer">
-        <div class="single_time">
-            <img src="{{ URL::asset('img/time.svg') }}" class="event_icon" alt="clock">
-            <span></span>
+            </form>
         </div>
-        <div class="single_location">
-            <img src="{{ URL::asset('img/location.svg') }}" class="event_icon" alt="location">
-            <span></span>
+
+        <div class="box single_task in_progress_task">
+            <div class="task_title">Pesentation Slides</div>
+
+            <!-- View the event containing the task -->
+            <form method="POST" action="{{ url('/event') }}">
+            @csrf
+            <input name="event_id" type="hidden">
+            <button class="button view_button">View</button>
+            </form>
         </div>
+
     </div>
 
 </div>
