@@ -95,3 +95,18 @@
     width: 100%;
     font-size: 1rem;
 }
+
+.date-picker {
+    text-align: center;
+    border: none;
+}
+
+.date-picker:hover {
+    border: 2px solid var(--purple);
+    cursor: pointer;
+}
+
+.ui-datepicker-calendar {
+    display:none!important;
+    visibility:hidden!important;
+}

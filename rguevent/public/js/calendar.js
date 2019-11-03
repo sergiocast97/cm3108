@@ -101,7 +101,7 @@ function calendarMonth(month, year, dates) {
             d = 0;
             // complete table row, add to table, start new row
             row += "</tr>"
-            console.log("ROW " + row);
+            // console.log("ROW " + row);
             table += row;
             row = "<tr>";
         }
@@ -269,8 +269,10 @@ $(document).ready(function() {
     var current_year = new Date().getFullYear();
 
     // Change title to correct month/year
-    $('#display-month').text(months[current_month]);
-    $('#display-year').text(current_year);
+    // $('#display-month').text(months[current_month]);
+    // $('#display-year').text(current_year);
+
+    $('.date-picker').val(months[current_month] + " " + current_year);
 
     // Change navigation buttons to correct months
     $('#back-btn button').text(months[current_month - 1]);
@@ -324,10 +326,11 @@ $(document).ready(function() {
  * Click Listener for Back Navigation
  * Change calendar to display previous month
  */
-$('#change-back').click(function() {
-    var month_id = months.indexOf($('#display-month').text()) - 1;
 
-    var display_year = $('#display-year').text();
+$('#change-back').click(function() {
+    var month_id = months.indexOf($('.date-picker').val().split(" ")[0]) - 1;
+
+    var display_year = $('.date-picker').val().split(" ")[1];
 
     // Set forward button to current month
     $('#forward-btn button').text($('#display-month').text());
@@ -353,17 +356,17 @@ $('#change-back').click(function() {
 
     // Display updated calendar view
     getEventDates(month_id,display_year);
-
-})
+});
 
 /**
  * Click Listener for Forward Navigation
  * Change calendar to display next month
  */
 $('#change-forward').click(function() {
-    var month_id = months.indexOf($('#display-month').text()) + 1;
 
-    var display_year = $('#display-year').text();
+    var month_id = months.indexOf($('.date-picker').val().split(" ")[0]) - 1;
+
+    var display_year = $('.date-picker').val().split(" ")[1];
 
     // Change back button to current month
     $('#back-btn button').text($('#display-month').text());
@@ -389,6 +392,38 @@ $('#change-forward').click(function() {
 
     // Display updated calendar view
     getEventDates(month_id,display_year);
+});
+    
 
+$(function() {
+    $('.date-picker').datepicker(
+    {
+        dateFormat: "MM yy",
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        onClose: function(dateText, inst){
+            var m = Math.abs($("#ui-datepicker-div .ui-datepicker-month :selected").val()) + 1;
+            console.log(m);
+            var y = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate',new Date(y,m,null));
+            $(this).datepicker('refresh');
+
+            if (m == 12) {
+                $('#forward-btn button').text(months[0]);
+            }
+            else {
+                $('#forward-btn button').text(months[m]);
+            }
+
+            if (m == 1) {
+                $('#back-btn button').text(months[11]);
+            }
+            else {
+                $('#back-btn button').text(months[m-2]);
+            }            
+
+            getEventDates(m-1,y);
+        }
+    });
 })
-

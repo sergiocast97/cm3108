@@ -73,4 +73,116 @@ class EventController extends Controller
         return view('event',['event' => $event, 'staff' => $staff, 'tasks' => $tasks]);
     }
 
+
+    // Add Event
+    public function add_event(Request $request) {
+        $request->validate([
+            'title' => 'required|max:191',
+            'description' => 'max:255',
+            'summary' => 'max:255',
+            'date' => 'required|date|after_or_equal:today', // cannot have date in the past
+            'location' => 'max:191',
+            'start_time' => 'date_format:H:i',
+            'end_time' => 'date_format:H:i|after:start_time'
+        ]);
+
+        $admin = Auth::id();
+
+        $event = new Event;
+
+        $event->creator_id = $admin;
+        $event->title = $request->title;
+        $event->date = $request->date;
+
+        if (!$request->description) {
+            $event->description = $request->description;
+        }
+
+        if (!$request->summary) {
+            $event->summary = $request->summary;
+        }
+
+        if (!$request->location) {
+            $event->location = $request->location;
+        }
+
+        if (!$request->start_time) {
+            $event->start_time = $request->start_time;
+        }
+
+        if (!$request->end_time) {
+            $event->end_time = $request->end_time;
+        }
+
+        $event->save();
+
+        return redirect()->back();
+        
+
+    }
+
+    // Edit Event
+    public function edit_event(Request $request) {
+        $request->validate([
+            'event_id' => 'required|exists:events,id',
+            'title' => 'required|max:191',
+            'description' => 'max:255',
+            'summary' => 'max:255',
+            'date' => 'required|date|after_or_equal:today', // cannot have date in the past
+            'location' => 'max:191',
+            'start_time' => 'date_format:H:i',
+            'end_time' => 'date_format:H:i|after:start_time'
+        ]);
+
+        $event = Event::find($request->event_id);
+
+        if ($event->title != $event->title) {
+            $event->title = $event->title;
+        }
+
+        if ($event->description != $event->description) {
+            $event->description = $event->description;
+        } 
+
+        if ($event->summary != $event->summary) {
+            $event->summary = $event->summary;
+        } 
+
+        if ($event->location != $event->location) {
+            $event->location = $event->location;
+        } 
+
+        if ($event->date != $event->date) {
+            $event->date = $event->date;
+        } 
+
+        if ($event->start_time != $event->start_time) {
+            $event->start_time = $event->start_time;
+        } 
+
+        if ($event->end_time != $event->end_time) {
+            $event->end_time = $event->end_time;
+        } 
+
+        $event->save();
+
+        return redirect()->back();
+
+    }
+
+    // Delete Event
+    public function delete_event(Request $request) {
+
+        $request->validate([
+            'event_id' => 'required|exists:events,id'
+        ]);
+
+        $event = Event::find($request->event_id);
+
+        $event->delete();
+
+        return redirect()->back();
+
+    }
+
 }

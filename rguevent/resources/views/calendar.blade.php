@@ -12,8 +12,9 @@
                 <button id="change-back">&lt;</button>
             </div>
             <div id="calendar-current">
-                <span id="display-month"></span>
-                <span id="display-year"></span>
+                <input name="month-list" id="month-list" class='date-picker' readonly="readonly">
+                <!-- <span id="display-month"></span>
+                <span id="display-year"></span> -->
             </div>
             <div id="forward-btn">
                 <button id="change-forward">&gt;</button>
