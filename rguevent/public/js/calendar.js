@@ -201,7 +201,7 @@ function displaySelectedDate(id) {
 }
 
 function createEventBox(event) {
-    var box = "<div class='event_box' id='" + event.id + "'>" + $('.events_single').html();
+    var box = "<div class='box event_box' id='" + event.id + "'>" + $('.events_single').html();
 
     $('.events_list').append(box);
 
@@ -213,7 +213,7 @@ function createEventBox(event) {
 }
 
 function showEventInfo(event) {
-    var box = "<div class='event_box' id='" + event.id + "'>" + $('.events_single').html();
+    var box = "<div class='box event_box' id='" + event.id + "'>" + $('.events_single').html();
 
     $('.events_list').append(box);
 

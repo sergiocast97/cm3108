@@ -28,7 +28,7 @@ function drop(ev) {
         <!-- To Do -->
         <div class="task_list" id="todo">
             <h4 class="task_header">To Do</h4>
-            <div class="task_column" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
                     @if ($task->status === "To Do")
                         <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">{{ $task->title }}</div>
@@ -44,7 +44,7 @@ function drop(ev) {
         <!-- In Progress -->
         <div class="task_list" id="in_progress">
             <h4 class="task_header">In Progress</h4>
-            <div class="task_column" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
                     @if ($task->status === "In Progress")
                         <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">{{ $task->title }}</div>
@@ -58,7 +58,7 @@ function drop(ev) {
         <!-- Complete -->
         <div class="task_list" id="complete">
             <h4 class="task_header">Complete</h4>
-            <div class="task_column" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
                     @if ($task->status === "Complete")
                         <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">{{ $task->title }}</div>
@@ -74,9 +74,9 @@ function drop(ev) {
 </div>
 
 <!-- Event info sidebar -->
-<div class="event_info">
+<div class="side">
 
-    <h3 class="event_name">{{ $event->title }}</h3>
+    <div class="side_title">{{ $event->title }}</div>
 
     <div class="event_head">
         <div class="single_location">
@@ -131,10 +131,10 @@ function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+function drop(ev, el) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  el.appendChild(document.getElementById(data));
 }
 </script>
 

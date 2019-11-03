@@ -22,7 +22,7 @@
 
 <body>
 
-    <nav>
+    <header>
         <!-- Menu button -->
         <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776;</span>
 
@@ -34,7 +34,7 @@
             <img src="{{ URL::asset('img/user.jpg') }}" alt="Profile Picture" class="user_picture">
             <div class="user_notification">3</div>
         </div>
-    </nav>
+    </header>
 
     <!-- Menu items -->
     <div id="side_nav" class="sidenav">
@@ -42,7 +42,6 @@
         <a href="{{ url('/') }}" >Login</a>
         <a href="{{ url('/calendar') }}" >Calendar</a>
         <a href="{{ url('/event') }}" >Events</a>
-        <a href="{{ url('/user') }}" >User</a>
         <a href="{{ url('/admin') }}" >Admin</a>
     </div>
 
