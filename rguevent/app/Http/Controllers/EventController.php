@@ -78,6 +78,9 @@ class EventController extends Controller
 
     // Add Event
     public function add_event(Request $request) {
+
+        // dd($request);
+
         $request->validate([
             'title' => 'required|max:191',
             'description' => 'max:255',
@@ -118,7 +121,9 @@ class EventController extends Controller
 
         $event->save();
 
-        return redirect()->back();
+        // dd($event->date);
+
+        return $event;
         
 
     }

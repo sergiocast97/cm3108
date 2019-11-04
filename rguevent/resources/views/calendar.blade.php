@@ -41,7 +41,7 @@
 
     </div>
 
-    <button class="add-button add-event">Add Event</button>
+    <button class="add-button add-event" data-toggle="modal" data-target="#event-modal">Add Event</button>
 
 </div>
 
@@ -71,5 +71,40 @@
     </div>
 
 </div>
+
+<!-- MODAL -->
+
+<div id="event-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Event</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- <h4 class="modal-title">Modal Header</h4> -->
+            </div>
+            <div class="modal-body">
+                <!-- Add Task Form -->
+                <form id="event-form" class="info-form">
+                    @csrf
+                    <!-- <input type="hidden" name="event_id"> -->
+                    <label for="event-title">Event</label>
+                    <input id="form-event-title" type="text" name="title" placeholder="Task name...">
+
+                    <label for="form-event-desc">Description</label>
+                    <textarea id="form-event-desc" name="description" rows="3"></textarea>
+
+                    <label for="form-event-date">Date</label>
+                    <input type="text" readonly="readonly" name="date" id="form-event-date">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="event-submit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END MODAL -->
 
 @endsection
