@@ -104,6 +104,8 @@
 .date-picker {
     text-align: center;
     border: none;
+    border: 2px solid var(--white);
+    transition: 0.25s;
 }
 
 .date-picker:hover {

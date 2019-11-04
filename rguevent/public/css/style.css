@@ -64,6 +64,15 @@ main {
     transition: 0.25s;
 }
 
+.side .button {
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.side .button:hover {
+    background-color: var(--black);
+}
+
 .button:hover {
     background-color: var(--purple);
     color: var(--white);

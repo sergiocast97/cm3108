@@ -137,7 +137,7 @@ function drop(ev) {
         </ul>
     </div>
 
-    <button class="add-button edit-event">Edit Event</button>
+    <button class="add-button edit-event button">Edit Event</button>
 
 </div>
 
