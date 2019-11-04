@@ -158,19 +158,17 @@ function drop(ev) {
                     <input type="hidden" name="event_id" value="{{ $event->id }}">
 
                     <div class="form-group">
-                        <label for="task-title">Task</label>
-                        <input id="form-task-title" type="text" name="title" placeholder="...">
+                        <input class="textbox" id="form-task-title" type="text" name="title" placeholder="Title">
                     </div>                  
 
                     <div class="form-group">
-                        <label for="form-task-desc">Description</label>
-                        <textarea id="form-task-desc" name="description" rows="3"></textarea>
+                        <textarea class="textbox" id="form-task-desc" name="description" rows="3" placeholder="Description"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="task-submit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                <button type="button" class="button" data-dismiss="modal">Close</button>
+                <button id="task-submit" type="button" class="button" data-dismiss="modal">Submit</button>
             </div>
         </div>
     </div>

@@ -41,7 +41,7 @@
 
     </div>
 
-    <button class="add-button add-event" data-toggle="modal" data-target="#event-modal">Add Event</button>
+    <button class="add-button add-event button" data-toggle="modal" data-target="#event-modal">Add Event</button>
 
 </div>
 
@@ -88,29 +88,23 @@
                     @csrf
                     <!-- <input type="hidden" name="event_id"> -->
                     <div class="form-group">
-                        <label for="event-title">Event</label>
-                        <input id="form-event-title" type="text" name="title" placeholder="...">
+                        <input class="textbox" id="form-event-title" type="text" name="title" placeholder="Title">
+                    </div>
+
+                    <div class="form-group half">
+                        <input class="textbox" type="text" name="location" id="form-event-location" placeholder="Location">
+                        <input class="textbox" type="text" readonly="readonly" name="date" id="form-event-date" placeholder="Date">
                     </div>
 
                     <div class="form-group">
-                        <label for="form-event-desc">Description</label>
-                        <textarea id="form-event-desc" name="description" rows="3"></textarea>
+                        <textarea class="textbox" id="form-event-desc" name="description" rows="3" placeholder="Description"></textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="form-event-date">Date</label>
-                        <input type="text" readonly="readonly" name="date" id="form-event-date">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="form-event-location">Location</label>
-                        <input type="text" name="location" id="form-event-location">
-                    </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="event-submit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                <button type="button" class="button" data-dismiss="modal">Close</button>
+                <button id="event-submit" type="button" class="button" data-dismiss="modal">Submit</button>
             </div>
         </div>
     </div>
