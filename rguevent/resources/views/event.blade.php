@@ -156,11 +156,16 @@ function drop(ev) {
                 <form id="task-form" class="info-form">
                     @csrf
                     <input type="hidden" name="event_id" value="{{ $event->id }}">
-                    <label for="task-title">Task</label>
-                    <input id="form-task-title" type="text" name="title" placeholder="Task name...">
 
-                    <label for="form-task-desc">Description</label>
-                    <textarea id="form-task-desc" name="description" rows="3"></textarea>
+                    <div class="form-group">
+                        <label for="task-title">Task</label>
+                        <input id="form-task-title" type="text" name="title" placeholder="...">
+                    </div>                  
+
+                    <div class="form-group">
+                        <label for="form-task-desc">Description</label>
+                        <textarea id="form-task-desc" name="description" rows="3"></textarea>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

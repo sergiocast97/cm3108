@@ -87,14 +87,25 @@
                 <form id="event-form" class="info-form">
                     @csrf
                     <!-- <input type="hidden" name="event_id"> -->
-                    <label for="event-title">Event</label>
-                    <input id="form-event-title" type="text" name="title" placeholder="Task name...">
+                    <div class="form-group">
+                        <label for="event-title">Event</label>
+                        <input id="form-event-title" type="text" name="title" placeholder="...">
+                    </div>
 
-                    <label for="form-event-desc">Description</label>
-                    <textarea id="form-event-desc" name="description" rows="3"></textarea>
+                    <div class="form-group">
+                        <label for="form-event-desc">Description</label>
+                        <textarea id="form-event-desc" name="description" rows="3"></textarea>
+                    </div>
 
-                    <label for="form-event-date">Date</label>
-                    <input type="text" readonly="readonly" name="date" id="form-event-date">
+                    <div class="form-group">
+                        <label for="form-event-date">Date</label>
+                        <input type="text" readonly="readonly" name="date" id="form-event-date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form-event-location">Location</label>
+                        <input type="text" name="location" id="form-event-location">
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
