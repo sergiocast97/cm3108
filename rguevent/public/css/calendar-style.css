@@ -111,7 +111,7 @@
     cursor: pointer;
 }
 
-.ui-datepicker-calendar {
+.hide-calendar .ui-datepicker-calendar {
     display:none!important;
     visibility:hidden!important;
 }

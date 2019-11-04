@@ -41,6 +41,8 @@
 
     </div>
 
+    <button class="add-button add-event">Add Event</button>
+
 </div>
 
 <!-- Single event -->

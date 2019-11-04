@@ -21,7 +21,10 @@ function drop(ev) {
 <!-- Event Tasks -->
 <div class="task_area">
 
-    <h2 class="task_area_title">Tasks</h2>
+    <div id="title-zone">
+        <h2 class="task_area_title">Tasks</h2>
+        <button class="add-button" data-toggle="modal" data-target="#task-modal">Add Task</button>
+    </div>
     
 
     <div class="task_lists">
@@ -134,7 +137,41 @@ function drop(ev) {
         </ul>
     </div>
 
+    <button class="add-button edit-event">Edit Event</button>
+
 </div>
+
+<!-- MODAL -->
+
+<div id="task-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Task</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- <h4 class="modal-title">Modal Header</h4> -->
+            </div>
+            <div class="modal-body">
+                <!-- Add Task Form -->
+                <form id="task-form" class="info-form">
+                    @csrf
+                    <input type="hidden" name="event_id" value="{{ $event->id }}">
+                    <label for="task-title">Task</label>
+                    <input id="form-task-title" type="text" name="title" placeholder="Task name...">
+
+                    <label for="form-task-desc">Description</label>
+                    <textarea id="form-task-desc" name="description" rows="3"></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="task-submit" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END MODAL -->
 
 </main>
 

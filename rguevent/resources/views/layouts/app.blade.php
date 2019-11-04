@@ -60,5 +60,6 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/navigation.js') }}"></script>
 <script src="{{ asset('js/calendar.js') }}"></script>
+<script src="{{ asset('js/modals.js') }}"></script>
 
 </html>

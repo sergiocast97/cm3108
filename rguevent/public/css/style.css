@@ -38,6 +38,7 @@ main {
     height: 100%;
     padding: 50px;
     color: var(--white);
+    position: relative;
 }
 
 .side_title {
@@ -213,6 +214,7 @@ header .user_notification {
     padding: 50px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .task_area_title {
@@ -529,9 +531,51 @@ header .user_notification {
 }
 
 
+#title-zone {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-button {
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px 10px;
+    font-weight: 600;
+    background-color: var(--white);
+    color: var(--black);
+    border: solid var(--purple) 2px;
+    transition: 0.25s;
+    height: 40px;
+}
+
+.modal-footer button:hover,
+.add-button:hover {
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.add-event, .edit-event {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
 
 /* TASKS */
 
 .assign_star {
     width:20px;
+}
+
+/* MODAL */
+
+.modal-footer {
+    justify-content: space-between;
+}
+
+.modal-footer button {
+    background-color: var(--white);
+    color: var(--black);
+    border: solid var(--purple) 2px;
+    transition: 0.25s;
 }

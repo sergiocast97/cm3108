@@ -41,10 +41,14 @@
                 <div class="user_study">BSc Computer Science | Year 2</div> -->
                 <div class="user_name">{{ $user->name }}</div>
                 @if (!empty($profile))
-                <div class="user_type">Student Ambassador</div>
+                    <div class="user_type">Student Ambassador</div>
                 
                     <div class="user_study">{{ $profile->course }} | Year {{ $profile->study_year }}</div>
                 
+                @elseif ($user->access == "admin")
+                    <div class="user_type">Administrator</div>
+                @else
+                    <div class="user_type">Staff</div>
                 @endif
             </div>
 

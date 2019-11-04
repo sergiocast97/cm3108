@@ -36,3 +36,6 @@ Route::post('/getdates', 'EventController@getdates');
 Route::post('/geteventinfo', 'EventController@geteventinfo');
 
 Route::post('/event','EventController@event');
+
+// Add Task
+Route::post('/addtask','TaskController@add_task');

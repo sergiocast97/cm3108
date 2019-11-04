@@ -436,6 +436,10 @@ $(function() {
         changeMonth: true,
         changeYear: true,
         showButtonPanel: true,
+        beforeShow: function (e, t) {
+            $(this).datepicker("hide");
+            $("#ui-datepicker-div").addClass("hide-calendar");
+        },
         onClose: function(dateText, inst){
             var m = Math.abs($("#ui-datepicker-div .ui-datepicker-month :selected").val()) + 1;
             console.log(m);
