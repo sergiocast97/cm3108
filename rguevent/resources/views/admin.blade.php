@@ -72,7 +72,13 @@
 
         <!-- Student Skills -->
         <div class="student_skills">
-            <div class="user_area_title">Skills</div>
+            <!-- <div class="top-title"> -->
+                <div class="user_area_title">
+                    <span>Skills</span>
+                    <button class="add-button edit-button">Edit</button>
+                </div>
+                <!-- <button class="add-button">Edit</button> -->
+            <!-- <div> -->
             <!-- <div class="skills_list">
                 <div class="skills_item">Web Development</div>
                 <div class="skills_item">Programming</div>
@@ -88,7 +94,13 @@
 
         <!-- Student Experience -->
         <div class="student_experience">
-            <div class="user_area_title">Experience</div>
+            <!-- <div class="top-title"> -->
+                <div class="user_area_title">
+                    <span>Experience</span>
+                    <button class="add-button edit-button">Edit</button>
+                </div>
+                <!-- <button class="add-button">Edit</button> -->
+            <!-- </div> -->
             <!-- <div class="experience_list">
                 <div class="experience_item">Open Day</div>
                 <div class="experience_item">Women in STEM</div>
@@ -194,7 +206,7 @@
         </div> -->
 
         @foreach ($tasks as $task)
-        <div class="box single_task in_progress_task">
+        <div class="box single_task">
             <div class="task_title">{{ $task->title }}</div>
 
             <!-- View the event containing the task -->

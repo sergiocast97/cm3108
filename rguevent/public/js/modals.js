@@ -3,15 +3,7 @@ $(function() {
         {
             changeMonth: true,
             changeYear: true,
-            dateFormat: "yy-mm-dd",
-            // beforeShow: function(e,t) {
-            //     var selected = $('.selected').attr('id');
-            //     console.log(selected);
-            //     var d = selected.split("-")[2];
-            //     var m = selected.split("-")[1];
-            //     var y = selected.split("-")[0];
-            //     $(this).datepicker('setDate',new Date(y,m,d));
-            // }
+            dateFormat: "yy-mm-dd"
         }
     );
 })

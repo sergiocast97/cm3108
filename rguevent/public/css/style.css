@@ -491,6 +491,7 @@ header .user_notification {
     font-weight: 800;
     font-size: 1.75rem;
     margin-bottom: 15px;
+    justify-content: space-between;
 }
 
 .events_table {
@@ -588,3 +589,4 @@ header .user_notification {
     border: solid var(--purple) 2px;
     transition: 0.25s;
 }
+

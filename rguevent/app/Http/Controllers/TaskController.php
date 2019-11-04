@@ -44,7 +44,8 @@ class TaskController extends Controller
         $task->save();
 
         // return redirect()->back();
-        return TRUE;
+        // return "Success";
+        return [$task,$admin];
     }
 
     // edit task in database
