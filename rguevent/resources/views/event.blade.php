@@ -35,7 +35,7 @@ function drop(ev) {
                         <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">
                             {{ $task->title }}
                             @if ($task->assignee_id == $user->id)
-                            <span>Assigned</span>
+                            <span><img src="{{ asset('img/star.svg') }}"></span>
                             @endif
                         </div>
                     @endif
@@ -56,7 +56,7 @@ function drop(ev) {
                         <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">
                             {{ $task->title }}
                             @if ($task->assignee_id == $user->id)
-                            <span>Assigned</span>
+                            <span><img src="{{ asset('img/star.svg') }}"></span>
                             @endif
                         </div>
                     @endif
@@ -75,7 +75,7 @@ function drop(ev) {
                         <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">
                             {{ $task->title }}
                             @if ($task->assignee_id == $user->id)
-                            <span>Assigned</span>
+                            <span><img class="assign_star" src="{{ asset('img/star.svg') }}"></span>
                             @endif
                         </div>
                     @endif

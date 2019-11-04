@@ -527,3 +527,11 @@ header .user_notification {
 .task_title {
     font-weight: 700;
 }
+
+
+
+/* TASKS */
+
+.assign_star {
+    width:20px;
+}
