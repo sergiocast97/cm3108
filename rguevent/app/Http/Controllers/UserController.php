@@ -38,7 +38,8 @@ class UserController extends Controller
                 $profile = $user->profile()->get();
                 foreach ($profile as $p) {
                     $p_id = $p->id;
-                    $skills = Profile::find($p_id)->skills()->get();
+                    $profile = Profile::find($p_id);
+                    $skills = $profile->skills()->get();
                 }
 
                 return view('admin', ['user' => $user,'events' => $events, 'tasks' => $tasks, 'profile' => $profile, 'skills' => $skills]);

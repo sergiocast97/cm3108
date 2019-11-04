@@ -36,14 +36,25 @@
         <div class="user_info">
 
             <div class="main_info">
-                <div class="user_name">Eilidh Clark</div>
+                <!-- <div class="user_name">Eilidh Clark</div>
                 <div class="user_type">Student Ambassador</div>
-                <div class="user_study">BSc Computer Science | Year 2</div>
+                <div class="user_study">BSc Computer Science | Year 2</div> -->
+                <div class="user_name">{{ $user->name }}</div>
+                @if (!empty($profile))
+                <div class="user_type">Student Ambassador</div>
+                
+                    <div class="user_study">{{ $profile->course }} | Year {{ $profile->study_year }}</div>
+                
+                @endif
             </div>
 
             <div class="contact_info">
+                <!-- <div class="user_phone">+44 8503 593 833</div> -->
+                <!-- <div class="user_email"><span>1712970</span>@rgu.ac.uk</div>
+                <div class="user_gender">Female</div> -->
+
                 <div class="user_phone">+44 8503 593 833</div>
-                <div class="user_email"><span>1712970</span>@rgu.ac.uk</div>
+                <div class="user_email">{{ $user->email }}</div>
                 <div class="user_gender">Female</div>
             </div>
 
@@ -51,30 +62,39 @@
         
     </div>
 
+
+    @if (!empty($profile))
     <div class="student_info">
 
         <!-- Student Skills -->
         <div class="student_skills">
             <div class="user_area_title">Skills</div>
-            <div class="skills_list">
+            <!-- <div class="skills_list">
                 <div class="skills_item">Web Development</div>
                 <div class="skills_item">Programming</div>
                 <div class="skills_item">Event Management</div>
                 <div class="skills_item">Interpersonal Skills</div>
+            </div> -->
+            <div class="skills_list">
+                @foreach ($skills as $skill)
+                <div class="skills_item">{{ $skill->skill }}</div>
+                @endforeach
             </div>
         </div>
 
         <!-- Student Experience -->
         <div class="student_experience">
             <div class="user_area_title">Experience</div>
-            <div class="experience_list">
+            <!-- <div class="experience_list">
                 <div class="experience_item">Open Day</div>
                 <div class="experience_item">Women in STEM</div>
                 <div class="experience_item">Lego EV3 Robots</div>
                 <div class="experience_item">Carrers Fayre</div>
-            </div>
+            </div> -->
+            <div>{{ $profile->experience }}</div>
         </div>
     </div>
+    @endif
 
     <div class="user_events">
         <div class="user_area_title">Events</div>
@@ -85,7 +105,7 @@
                 <th>Completion</th>
                 <th>Priority</th>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Open Day</td>
                 <td>20th October 2019</td>
                 <td>75%</td>
@@ -102,7 +122,15 @@
                 <td>12th November 2019</td>
                 <td>50%</td>
                 <td>Yes</td>
+            </tr> -->
+            @foreach ($events as $event)
+            <tr>
+                <td>{{ $event->title }}</td>
+                <td>{{ $event->date }}</td>
+                <td>75%</td>
+                <td>{{ $event->priority }}</td>
             </tr>
+            @endforeach
         </table>
 
     </div>
@@ -150,27 +178,29 @@
 
         <!-- <p id="no-tasks">No Tasks</p> -->
 
-        <div class="box single_task to_do_task">
+        <!-- <div class="box single_task to_do_task">
             <div class="task_title">Prepare Room</div>
 
-            <!-- View the event containing the task -->
+            !-- View the event containing the task --
             <form method="POST" action="{{ url('/event') }}">
             @csrf
             <input name="event_id" type="hidden">
             <button class="button view_button">View</button>
             </form>
-        </div>
+        </div> -->
 
+        @foreach ($tasks as $task)
         <div class="box single_task in_progress_task">
-            <div class="task_title">Pesentation Slides</div>
+            <div class="task_title">{{ $task->title }}</div>
 
             <!-- View the event containing the task -->
-            <form method="POST" action="{{ url('/event') }}">
+            <form method="POST" action="">
             @csrf
             <input name="event_id" type="hidden">
             <button class="button view_button">View</button>
             </form>
         </div>
+        @endforeach
 
     </div>
 
