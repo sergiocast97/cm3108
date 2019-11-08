@@ -9,7 +9,7 @@ var days = ["Sun","Mon","Tues","Wed","Thurs","Fri","Sat"];
  */
 function getNumDays(month, year) {
     // Use JS Date() function
-    return new Date(year, month, 0).getDate();
+    return new Date(year, month+1, 0).getDate();
 }
 
 /**
@@ -95,7 +95,7 @@ function calendarMonth(month, year, dates) {
     }
 
     // fill calendar with correct days
-    for (i = 1, d = firstDay; i < getNumDays(month,year); i++, d++) {
+    for (i = 1, d = firstDay; i < getNumDays(month,year)+1; i++, d++) {
         // if day count is greater than 6 (SAT), move back to 0 (SUN)
         if (d > 6) {
             d = 0;
@@ -210,17 +210,17 @@ function createEventBox(event) {
     $('#' + event.id + ' .single_location span').text(event.location);
     $('#' + event.id + ' input[name="event_id"]').val(event.id);
 
-    var event_time = "";
+    // var event_time = "";
 
-    if (event.start_time != null) {
-        $('#' + event.id + ' .single_time img').css('display','block');
-        event_time += event.start_time;
-        if (event.end_time != null) {
-            event_time += "-";
-            event_time += event.end_time;
-        }
-        $('#' + event.id + ' .single_time span').text(event_time);
-    }
+    // if (event.start_time != null) {
+    //     $('#' + event.id + ' .single_time img').css('display','block');
+    //     event_time += event.start_time;
+    //     if (event.end_time != null) {
+    //         event_time += "-";
+    //         event_time += event.end_time;
+    //     }
+    //     $('#' + event.id + ' .single_time span').text(event_time);
+    // }
 
     
 
@@ -239,16 +239,16 @@ function showEventInfo(event) {
     $('#' + event.id + ' .single_location span').text(event.location);
     $('#' + event.id + ' input[name="event_id"]').val(event.id);
 
-    var event_time = "";
+    // var event_time = "";
 
-    if (event.start_time != null) {
-        $('#' + event.id + ' .single_time img').css('display','block');
-        event_time += event.start_time;
-        if (event.end_time != null) {
-            event_time += event.end_time;
-        }
-        $('#' + event.id + ' .single_time span').text(event_time);
-    }
+    // if (event.start_time != null) {
+    //     $('#' + event.id + ' .single_time img').css('display','block');
+    //     event_time += event.start_time;
+    //     if (event.end_time != null) {
+    //         event_time += event.end_time;
+    //     }
+    //     $('#' + event.id + ' .single_time span').text(event_time);
+    // }
 }
 
 /**
@@ -283,6 +283,9 @@ function getEventInfo(id) {
  * DOCUMENT READY FUNCTION
  */
 $(document).ready(function() {
+
+    console.log(new Date(2019,1,0).getDate());
+    console.log(new Date(2019,2,0).getDate());
 
     // Setup for AJAX headers
     // Add CSRF token
