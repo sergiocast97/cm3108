@@ -29,6 +29,12 @@ class EventController extends Controller
 
     }
 
+    public function admin_events() {
+        $events = Event::all();
+
+        return view('tablecopy',['events' => $events]);
+    }
+
     public function calendar() {
 
         // $events = Event::where('date',date("Y-m-d"))->get();

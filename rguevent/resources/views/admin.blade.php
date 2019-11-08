@@ -184,7 +184,7 @@
 -->
 </div>
 
-<!-- Events Area -->
+<!-- TASKS Area -->
 <div class="side">
 
     <div class="side_title">Tasks</div>

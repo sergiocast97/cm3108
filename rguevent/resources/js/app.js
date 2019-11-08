@@ -36,4 +36,8 @@ window.$ = window.jQuery = $;
 
 import 'jquery-ui/ui/widgets/datepicker.js';
 
+import 'datatables.net/js/jquery.dataTables.min.js';
+
+import 'datatables.net-bs/js/dataTables.bootstrap.min.js';
+
 // $('.date-picker').datepicker();

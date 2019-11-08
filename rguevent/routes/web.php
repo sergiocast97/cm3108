@@ -30,6 +30,7 @@ Route::get('/task', 'TaskController@tasks');
 Route::get('/comment', 'CommentController@comments');
 
 Route::get('/calendar', 'EventController@calendar');
+Route::get('/bigtable', 'EventController@admin_events');
 
 Route::post('/getdates', 'EventController@getdates');
 
