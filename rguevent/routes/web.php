@@ -31,6 +31,7 @@ Route::get('/comment', 'CommentController@comments');
 
 Route::get('/calendar', 'EventController@calendar');
 Route::get('/bigtable', 'EventController@admin_events');
+Route::get('/tablecopy', 'EventController@admin_events_two');
 
 Route::post('/getdates', 'EventController@getdates');
 
@@ -43,3 +44,8 @@ Route::post('/addtask','TaskController@add_task');
 
 // Add Event
 Route::post('/addevent','EventController@add_event');
+
+
+Route::get('/task', function() {
+    return view('task');
+});

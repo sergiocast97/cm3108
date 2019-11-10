@@ -176,6 +176,39 @@ function drop(ev) {
 
 <!-- END MODAL -->
 
+
+<!-- TASK MODAL -->
+
+<div id="info-modal">
+    <div class="modal-content">
+        <div id="panel-info">
+            <div class="panel-content">
+                <h4>Task Title</h4>
+                <h5>Event Title</h5>
+                <div class="assign">
+                    <img src="{{ URL::asset('img/user.jpg') }}" alt="Profile Picture" class="user-img">
+                    <p>River Dee</p>
+                </div>
+                <p>Task summary, these are words, explaining the task. Written as a large or small paragraph. On the left side of the modal.</p>
+            </div>
+        </div>
+        <div id="panel-comment">
+            <div class="panel-content">
+                <h5>Comments</h5>
+                <form>
+                    <div class="form-group">
+                        <textarea class="textbox">Comment here...</textarea>
+                    </div>
+                    <button type="submit" class="comment-btn">Comment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END TASK MODAL -->
+
+
 </main>
 
 <script>

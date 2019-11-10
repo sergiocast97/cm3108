@@ -32,6 +32,12 @@ class EventController extends Controller
     public function admin_events() {
         $events = Event::all();
 
+        return view('bigtable',['events' => $events]);
+    }
+
+    public function admin_events_two() {
+        $events = Event::all();
+
         return view('tablecopy',['events' => $events]);
     }
 

@@ -76,3 +76,22 @@ $('.add-event').click(function() {
     var selected = $('.selected').attr('id');
     $('#form-event-date').val(selected);
 })
+
+
+//-----------
+// TASK MODAL
+//-----------
+
+$(function() {
+    $('.task_item').on('click', function() {
+        // $('#info-modal .modal-title').text($(this).text());
+        
+        $('#info-modal').css('display','block');
+    })
+
+    window.onclick = function(ev) {
+        if (ev.target == document.getElementById('info-modal')) {
+            $('#info-modal').css('display','none');
+        }
+    }
+})

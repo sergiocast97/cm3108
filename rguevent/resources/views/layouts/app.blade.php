@@ -13,7 +13,13 @@
 
     <!-- Styling -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    
+    
+    <!-- DataTable Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/calendar-style.css') }}" rel="stylesheet">
@@ -58,5 +64,6 @@
 <script src="{{ asset('js/calendar.js') }}"></script>
 <script src="{{ asset('js/modals.js') }}"></script>
 <script src="{{ asset('js/tables.js') }}"></script>
+
 
 </html>
