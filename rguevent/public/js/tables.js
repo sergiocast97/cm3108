@@ -1,3 +1,8 @@
 $(document).ready(function() {
-    $('#bigtable').DataTable();
+    $('#bigtable').DataTable( {
+        retrieve: true,
+        select: true,
+        order: [1, 'asc'],
+        pageLength: 25,
+    });
 })

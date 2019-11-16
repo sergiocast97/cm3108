@@ -20,6 +20,6 @@ class Task extends Model
 
     // has many comments
     public function comments() {
-        return $this->hasMany('App\Comment','task_id');
+        return $this->hasMany('App\Comment','task_id')->orderBy('updated_at');
     }
 }

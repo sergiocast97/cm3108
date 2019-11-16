@@ -45,6 +45,9 @@ Route::post('/addtask','TaskController@add_task');
 // Add Event
 Route::post('/addevent','EventController@add_event');
 
+// Get Task by ID
+Route::post('/gettask','TaskController@get_task');
+
 
 Route::get('/task', function() {
     return view('task');
