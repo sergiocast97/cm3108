@@ -64,6 +64,7 @@
 <script src="{{ asset('js/calendar.js') }}"></script>
 <script src="{{ asset('js/modals.js') }}"></script>
 <script src="{{ asset('js/tables.js') }}"></script>
+<script src="{{ asset('js/dragdrop.js') }}"></script>
 
 
 </html>
