@@ -97,8 +97,24 @@ class TaskController extends Controller
         //
     }
 
-    public function update_status() {
-        //
+    // Update Status on Drag & Drop
+    public function update_status(Request $request) {
+        
+        // valiate task status exists
+        $request->validate([
+            'task_id' => 'required|exists:tasks,id',
+            'task_status' => 'required|exists:tasks,status'
+        ]);
+
+        $task = Task::find($request->task_id);
+
+        if ($task->task_status != $request->task_status) {
+            $task->task_status = $request->task_status;
+        }       
+
+        $task->save();
+
+        return redirect()->back();
     }
 
     public function get_task(Request $request) {

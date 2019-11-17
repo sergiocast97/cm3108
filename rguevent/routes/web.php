@@ -42,6 +42,9 @@ Route::post('/event','EventController@event');
 // Add Task
 Route::post('/addtask','TaskController@add_task');
 
+// Update Task Status
+Route::post('/updateTaskStatus','TaskController@update_status');
+
 // Add Event
 Route::post('/addevent','EventController@add_event');
 

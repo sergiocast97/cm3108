@@ -2,22 +2,6 @@
 
 @section('content')
 
-<script>
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}
-</script>
-
 <!-- Event Tasks -->
 <div class="task_area">
 
@@ -30,7 +14,7 @@ function drop(ev) {
     <div class="task_lists">
 
         <!-- To Do -->
-        <div class="task_list" id="todo">
+        <div class="task_list" id="todo" name="To Do">
             <h4 class="task_header">To Do</h4>
             <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
@@ -43,15 +27,11 @@ function drop(ev) {
                         </div>
                     @endif
                 @endforeach
-                <!-- <div class="task_item" id="item1" draggable="true" ondragstart="drag(event)">Book conference room</div>
-                <div class="task_item" id="item2" draggable="true" ondragstart="drag(event)">Contact sponsors</div>
-                <div class="task_item" id="item3" draggable="true" ondragstart="drag(event)">Develop a promo video</div>
-                <div class="task_item" id="item4" draggable="true" ondragstart="drag(event)">Order food and beverages</div> -->
             </div>
         </div>
 
         <!-- In Progress -->
-        <div class="task_list" id="in_progress">
+        <div class="task_list" id="in_progress" name="In Progress">
             <h4 class="task_header">In Progress</h4>
             <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
@@ -64,13 +44,11 @@ function drop(ev) {
                         </div>
                     @endif
                 @endforeach
-                <!-- <div class="task_item" id="item5" draggable="true" ondragstart="drag(event)">Create Facebook event</div>
-                <div class="task_item" id="item6" draggable="true" ondragstart="drag(event)">Reach out to speakers</div> -->
             </div>
         </div>
 
         <!-- Complete -->
-        <div class="task_list" id="complete">
+        <div class="task_list" id="complete" name="Complete">
             <h4 class="task_header">Complete</h4>
             <div class="task_column" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 @foreach ($tasks as $task)
@@ -83,8 +61,6 @@ function drop(ev) {
                         </div>
                     @endif
                 @endforeach
-                <!-- <div class="task_item" id="item7" draggable="true" ondragstart="drag(event)">Recruit event committee</div>
-                <div class="task_item" id="item8" draggable="true" ondragstart="drag(event)">Create event budget</div> -->
             </div>
         </div>
 
@@ -293,21 +269,4 @@ function drop(ev) {
 
 
 </main>
-
-<script>
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev, el) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    el.appendChild(document.getElementById(data));
-}
-</script>
-
 @endsection
