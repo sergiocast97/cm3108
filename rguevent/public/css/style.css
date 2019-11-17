@@ -294,11 +294,11 @@ header .user_notification {
     transition: 0.25s;
 }
 
-.task_area .todo { border-color: var(--red) }
+.task_area #todo { border-color: var(--red) }
 
-.task_area .in_progress { border-color: var(--yellow) }
+.task_area #in_progress { border-color: var(--yellow) }
 
-.task_area .complete { border-color: var(--green) }
+.task_area #complete { border-color: var(--green) }
 
 #involved { border-color: var(--purple) }
 

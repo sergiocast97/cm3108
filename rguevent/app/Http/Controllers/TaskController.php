@@ -101,10 +101,11 @@ class TaskController extends Controller
         
         // valiate task status exists
         $request->validate([
+            'task_id' => 'required|exists:tasks,id',
             'task_status' => 'required|exists:tasks,status'
         ]);
 
-        $task = Task::find($request->task_status);
+        $task = Task::find($request->task_id);
 
         if ($task->task_status != $request->task_status) {
             $task->task_status = $request->task_status;
