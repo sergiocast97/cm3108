@@ -18,9 +18,9 @@
     <!-- DataTable Stylesheet -->
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/calendar-style.css') }}" rel="stylesheet">
     
@@ -59,13 +59,12 @@
 
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="{{ asset('js/animations.js') }}"></script>
+<!-- <script src="{{ asset('js/animations.js') }}"></script> -->
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/navigation.js') }}"></script>
-<script src="{{ asset('js/calendar.js') }}"></script>
-<script src="{{ asset('js/modals.js') }}"></script>
+<!-- <script src="{{ asset('js/calendar.js') }}"></script> -->
+<!-- <script src="{{ asset('js/modals.js') }}"></script> -->
 <script src="{{ asset('js/tables.js') }}"></script>
-<script src="{{ asset('js/dragdrop.js') }}"></script>
 
 
 </html>

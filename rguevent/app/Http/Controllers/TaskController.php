@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 use App\Task;
+use App\User;
 
 class TaskController extends Controller
 {
@@ -112,6 +113,25 @@ class TaskController extends Controller
         $task->save();
 
         return redirect()->back();
+    }
+
+    public function get_task(Request $request) {
+        // dd($request);
+
+        $task = Task::find($request->id);
+
+        $comments = $task->comments()->get();
+
+        foreach ($comments as $comment) {
+            $author = User::find($comment->author_id);
+            $comment->authorname = $author->name;
+        }
+
+        // dd($comments);
+
+        // dd($comments);
+
+        return [$task,$comments];
     }
 
 }

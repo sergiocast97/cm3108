@@ -167,18 +167,21 @@
     <div class="modal-content">
         <div id="panel-info">
             <div class="panel-content">
-                <h4>Task Title</h4>
-                <h5>Event Title</h5>
+                <h4 class="modal-task-title">Task Title</h4>
+                <h5 class="modal-event-title">Event Title</h5>
                 <div class="assign">
                     <img src="{{ URL::asset('img/user.jpg') }}" alt="Profile Picture" class="user-img">
                     <p>River Dee</p>
                 </div>
-                <p>Task summary, these are words, explaining the task. Written as a large or small paragraph. On the left side of the modal.</p>
+                <p class="modal-task-summary">Task summary, these are words, explaining the task. Written as a large or small paragraph. On the left side of the modal.</p>
             </div>
         </div>
         <div id="panel-comment">
             <div class="panel-content">
                 <h5>Comments</h5>
+                <div class="comment-section">
+                    
+                </div>
                 <form>
                     <div class="form-group">
                         <textarea class="textbox">Comment here...</textarea>

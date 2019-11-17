@@ -1,10 +1,8 @@
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-<!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+@extends('layouts.table')
+@section('content')
 
 <div class="main_area">
-<div id="table-area" style="width: 75%;">
+<div id="table-area">
 <table id="bigtable">
     <thead>
         <tr>
@@ -50,3 +48,5 @@
 <script src="{{ asset('js/calendar.js') }}"></script>
 <script src="{{ asset('js/modals.js') }}"></script>
 <script src="{{ asset('js/tables.js') }}"></script>
+
+@endsection

@@ -6,6 +6,17 @@ html, body {
     height: 100%;
 }
 
+body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color:#f8fafc;
+}
+
 :root {
     /* Main Palette */
     --white: #FFF;
@@ -753,4 +764,15 @@ header .user_notification {
     resize: none;
     color: var(--black);
     background-color: var(--white);
+}
+
+.comment-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.comment-author {
+    font-weight: bold;
 }
