@@ -593,11 +593,18 @@ header .user_notification {
     color: var(--white);
 }
 
-.add-event, .edit-event {
+.add-event, #event-btns {
     position: absolute;
     bottom: 0;
     right: 0;
     margin: 25px 50px 50px 25px;
+}
+
+.delete-task {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 10px 10px 30px 20px;
 }
 
 

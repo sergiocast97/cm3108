@@ -137,8 +137,10 @@ function drop(ev) {
         </ul>
     </div>
 
-    <button class="add-button edit-event button">Edit Event</button>
-
+    <div id="event-btns">
+        <button class="add-button edit-event button" data-toggle="modal" data-target="#edit-modal">Edit Event</button>
+        <button class="add-button delete-event button" data-toggle="modal" data-target="#delete-event-modal">Delete Event</button>        
+    </div>
 </div>
 
 <!-- MODAL -->
@@ -185,12 +187,14 @@ function drop(ev) {
             <div class="panel-content">
                 <h4 class="modal-task-title">Task Title</h4>
                 <h5 class="modal-event-title">Event Title</h5>
+                <input type="hidden" id="info-task-id">
                 <div class="assign">
                     <img src="{{ URL::asset('img/user.jpg') }}" alt="Profile Picture" class="user-img">
                     <p>River Dee</p>
                 </div>
                 <p class="modal-task-summary">Task summary, these are words, explaining the task. Written as a large or small paragraph. On the left side of the modal.</p>
             </div>
+            <button class="add-button delete-task button" data-toggle="modal" data-target="#delete-modal">Delete Task</button>
         </div>
         <div id="panel-comment">
             <div class="panel-content">
@@ -198,18 +202,94 @@ function drop(ev) {
                 <div class="comment-section">
                     
                 </div>
-                <form>
-                    <div class="form-group">
-                        <textarea class="textbox">Comment here...</textarea>
-                    </div>
-                    <button type="submit" class="comment-btn">Comment</button>
-                </form>
+                
+                <div class="form-group">
+                    <textarea class="textbox" id="comment-msg" placeholder="Comment here..."></textarea>
+                </div>
+                <button class="comment-btn">Comment</button>
+                
             </div>
         </div>
     </div>
 </div>
 
 <!-- END TASK MODAL -->
+
+<div id="delete-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Delete Task</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this task?</p>
+                <input id="delete-id" type="hidden">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button" data-dismiss="modal">Cancel</button>
+                <button id="delete-submit" type="button" class="button" data-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- EVENT MODAL -->
+<div id="edit-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Event</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- <h4 class="modal-title">Modal Header</h4> -->
+            </div>
+            <div class="modal-body">
+                <!-- Add Task Form -->
+                <form id="edit-event-form" class="info-form" method="POST">
+                    @csrf
+                    <input type="hidden" name="event_id" value="{{ $event->id }}">
+                    <div class="form-group">
+                        <input class="textbox" id="form-event-title" type="text" name="title" value="{{ $event->title }}">
+                    </div>
+
+                    <div class="form-group half">
+                        <input class="textbox" type="text" name="location" id="form-event-location" value="{{ $event->location }}">
+                        <input class="textbox" type="text" readonly="readonly" name="date" id="form-event-date" value="{{ $event->date }}">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="textbox" id="form-event-desc" name="description" rows="3" placeholder="Description">{{ $event->description }}</textarea>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button" data-dismiss="modal">Close</button>
+                <button id="edit-event-submit" class="button" data-dismiss="modal">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- EVENT MODAL END -->
+
+<div id="delete-event-modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Delete Task</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this event?</p>
+                    <input id="event-delete-id" type="hidden" value="{{ $event->id }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button" data-dismiss="modal">Cancel</button>
+                    <button id="delete-event-submit" type="button" class="button" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </main>

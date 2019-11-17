@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 
 use App\Task;
 use App\User;
+use App\Comment;
 
 class TaskController extends Controller
 {
@@ -78,16 +79,16 @@ class TaskController extends Controller
     public function delete_task(Request $request) {
         // valiate task id exists
         $request->validate([
-            'task_id' => 'required|exists:tasks,id'
+            'id' => 'required|exists:tasks,id'
         ]);
 
         // find task by id
-        $task = Task::find($request->task_id);
+        $task = Task::find($request->id);
 
         // delete task from table
         $task->delete();
 
-        return redirect()->back();
+        return 'True';
 
     }
 
@@ -118,5 +119,24 @@ class TaskController extends Controller
 
         return [$task,$comments];
     }
+
+    public function add_comment(Request $request) {
+        
+        $comment = new Comment;
+
+        $comment->author_id = Auth::id();
+
+        $comment->task_id = $request->taskid;
+        $comment->message = $request->message;
+
+        $comment->save();
+
+        $author = Auth::user();
+        $comment->authorname = $author->name;
+
+        return $comment;
+
+    }
+
 
 }

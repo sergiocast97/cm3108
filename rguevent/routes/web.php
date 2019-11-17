@@ -48,6 +48,13 @@ Route::post('/addevent','EventController@add_event');
 // Get Task by ID
 Route::post('/gettask','TaskController@get_task');
 
+// Delete Task
+Route::post('/deletetask','TaskController@delete_task');
+Route::post('/addcomment','TaskController@add_comment');
+
+Route::post('/deleteevent','EventController@delete_event');
+Route::post('/editevent','EventController@edit_event');
+
 
 Route::get('/task', function() {
     return view('task');

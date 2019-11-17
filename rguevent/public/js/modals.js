@@ -97,7 +97,9 @@ $(function() {
         
         // get task info
         var taskid = $(this).attr('id').split('-')[1];
-        console.log(taskid);
+        // console.log(taskid);
+
+        $('#info-task-id').val(taskid);
 
         $.ajax({
             url: 'gettask',
@@ -142,7 +144,7 @@ $(function() {
                     $('.comment-section').append(comment_box);
                 }
                 
-
+                $('#delete-id').val(task.id);
 
                 $('#info-modal').css('display','block');
 
@@ -159,4 +161,89 @@ $(function() {
             $('#info-modal').css('display','none');
         }
     }
+
+    $('#delete-submit').click(function() {
+        var task_id = $('#delete-id').val();
+
+        $.ajax({
+            url: 'deletetask',
+            type: 'POST',
+            data: {
+                'id' : task_id
+            },
+            success: function(result) {
+                $('#info-modal').css('display','none');
+                $('#task-' + task_id).remove();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus,errorThrown);
+            }
+        })
+    })
+
+    $('#delete-event-submit').click(function() {
+        var eventid = $('#event-delete-id').val();
+        // console.log("EVENT ID: " + eventid);
+
+        $.ajax({
+            url: 'deleteevent',
+            type: 'POST',
+            data: {
+                'id': eventid
+            },
+            success: function(result) {
+                window.location.replace("http://localhost/cm3108/rguevent/public/calendar");
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus,errorThrown);
+            }
+        })
+
+    })
+
+    $('.comment-btn').click(function() {
+        var message = $('#comment-msg').val();
+        var taskid = $('#info-task-id').val();
+
+        $.ajax({
+            url: 'addcomment',
+            type: 'POST',
+            data: {
+                'message': message,
+                'taskid': taskid
+            },
+            success: function(new_comment) {
+                console.log(new_comment);
+                comment_box = "<div class='comment' id='" + new_comment.id + "'>";
+                comment_box += "<div class='comment-header'><span class='comment-author'>" + new_comment.authorname + "</span><span>" + (new_comment.updated_at).split(' ')[0] + "</span></div>";
+                comment_box += "<div class='comment-body'>" + new_comment.message + "<p></p></div></div>";
+                console.log(comment_box);
+                $('.comment-section').append(comment_box);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus,errorThrown);
+            }
+        })
+    })
+
+    $('#edit-event-submit').click(function() {
+        $.ajax({
+            url: 'editevent',
+            type: 'POST',
+            data: $('#edit-event-form').serialize(),
+            success: function(event) {
+                console.log(event);
+                
+                $('.side_title').text(event.title);
+                $('.single_location span').text(event.location);
+                $('.event_description').text(event.description);
+                $('#form-event-date').val(event.date);
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus,errorThrown);
+            }
+        })
+    })
+    
 })

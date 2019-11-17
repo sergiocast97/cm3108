@@ -97,7 +97,7 @@ class EventController extends Controller
             'title' => 'required|max:191',
             'description' => 'max:255',
             'summary' => 'max:255',
-            'date' => 'required|date|after_or_equal:today', // cannot have date in the past
+            'date' => 'required|date', // cannot have date in the past
             'location' => 'max:191',
             'start_time' => 'date_format:H:i',
             'end_time' => 'date_format:H:i|after:start_time'
@@ -154,38 +154,13 @@ class EventController extends Controller
         ]);
 
         $event = Event::find($request->event_id);
-
-        if ($event->title != $event->title) {
-            $event->title = $event->title;
-        }
-
-        if ($event->description != $event->description) {
-            $event->description = $event->description;
-        } 
-
-        if ($event->summary != $event->summary) {
-            $event->summary = $event->summary;
-        } 
-
-        if ($event->location != $event->location) {
-            $event->location = $event->location;
-        } 
-
-        if ($event->date != $event->date) {
-            $event->date = $event->date;
-        } 
-
-        if ($event->start_time != $event->start_time) {
-            $event->start_time = $event->start_time;
-        } 
-
-        if ($event->end_time != $event->end_time) {
-            $event->end_time = $event->end_time;
-        } 
-
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->location = $request->location;
+        
         $event->save();
 
-        return redirect()->back();
+        return $event;
 
     }
 
@@ -193,14 +168,14 @@ class EventController extends Controller
     public function delete_event(Request $request) {
 
         $request->validate([
-            'event_id' => 'required|exists:events,id'
+            'id' => 'required|exists:events,id'
         ]);
 
-        $event = Event::find($request->event_id);
+        $event = Event::find($request->id);
 
         $event->delete();
 
-        return redirect()->back();
+        return 'True';
 
     }
 
