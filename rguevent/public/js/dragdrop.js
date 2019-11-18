@@ -29,7 +29,7 @@ let drop = (ev, el) => {
     newStatus = $(el).parent().attr('name');
 
     // Getting the task ID
-    taskId = $(document.getElementById(data)).attr('id');
+    taskId = $(document.getElementById(data)).attr('id').split('-')[1];
 
     $.ajax({
         url: 'updateTaskStatus',

@@ -108,13 +108,13 @@ class TaskController extends Controller
 
         $task = Task::find($request->task_id);
 
-        if ($task->task_status != $request->task_status) {
-            $task->task_status = $request->task_status;
+        if ($task->status != $request->task_status) {
+            $task->status = $request->task_status;
         }       
 
         $task->save();
 
-        return redirect()->back();
+        return 'True';
     }
 
     public function get_task(Request $request) {
