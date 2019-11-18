@@ -22,7 +22,7 @@
                         <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">
                             {{ $task->title }}
                             @if ($task->assignee_id == $user->id)
-                            <span><img src="{{ asset('img/star.svg') }}"></span>
+                            <span><img class="assign-star" src="{{ asset('img/star.svg') }}"></span>
                             @endif
                         </div>
                     @endif
@@ -39,7 +39,7 @@
                         <div class="task_item" id="{{ 'task-' . $task->id }}" draggable="true" ondragstart="drag(event)">
                             {{ $task->title }}
                             @if ($task->assignee_id == $user->id)
-                            <span><img src="{{ asset('img/star.svg') }}"></span>
+                            <span><img class="assign-star" src="{{ asset('img/star.svg') }}"></span>
                             @endif
                         </div>
                     @endif

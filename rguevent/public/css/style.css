@@ -783,3 +783,9 @@ header .user_notification {
 .comment-author {
     font-weight: bold;
 }
+
+
+.assign-star {
+    width: 15px;
+    height: 15px;
+}
